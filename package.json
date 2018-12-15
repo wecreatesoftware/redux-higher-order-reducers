@@ -1,10 +1,14 @@
 {
-    "name": "redux-reusable-reducers",
+    "name": "@wecreatesoftware/redux-reusable-reducers",
     "version": "1.0.0",
     "description": "Reusable curried reducers.",
     "main": "dist/redux-reusable-reducers.js",
     "scripts": {
         "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wecreatesoftware/redux-reusable-reducers"
     },
     "keywords": [
         "react",
