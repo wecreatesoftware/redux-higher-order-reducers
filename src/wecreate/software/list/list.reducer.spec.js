@@ -1,4 +1,4 @@
-import { INSERT_ITEM, listReducer, REMOVE_ITEM, RESET_LIST, UPDATE_ITEM } from "./list.reducer"
+import { INSERT_ITEM, listReducer, REMOVE_ITEM, REMOVE_ITEM_BY_KEY, RESET_LIST, UPDATE_ITEM, UPDATE_ITEM_BY_KEY } from "./list.reducer"
 
 describe("listReducer", () => {
     const reducerName = "reducerName"
@@ -81,7 +81,31 @@ describe("listReducer", () => {
         })
     })
 
-    describe("UPDATE_TIEM", () => {
+    describe("REMOVE_ITEM_BY_KEY", () => {
+        const action = {
+            type: REMOVE_ITEM_BY_KEY,
+            meta: { reducerName }
+        };
+
+        [
+            { desc: "key id value 0", payload: { item: { id: 0 } }, expected: [1, 2, 3, 4] },
+            { desc: "key id value 1", payload: { item: { id: 1 } }, expected: [0, 2, 3, 4] },
+            { desc: "key id value 2", payload: { item: { id: 2 } }, expected: [0, 1, 3, 4] },
+            { desc: "key id value 3", payload: { item: { id: 3 } }, expected: [0, 1, 2, 4] },
+            { desc: "key id value 4", payload: { item: { id: 4 } }, expected: [0, 1, 2, 3] },
+            { desc: "none, id value not found", payload: { item: { id: 5 } }, expected: [0, 1, 2, 3, 4] }
+        ].forEach(({ desc, expected, payload }) => {
+            it(`should remove item: ${desc}`, () => {
+                expect(
+                    listReducer({ reducerName, key: "id" })(state, { ...action, payload }).map(({ id }) => id)
+                ).toEqual(
+                    expected
+                )
+            })
+        })
+    })
+
+    describe("UPDATE_ITEM", () => {
         const item = { updated: true }
         const action = {
             type: UPDATE_ITEM,
@@ -94,11 +118,36 @@ describe("listReducer", () => {
             { desc: "at index 2", payload: { item, index: 2 }, expected: [undefined, undefined, true, undefined, undefined] },
             { desc: "at index 3", payload: { item, index: 3 }, expected: [undefined, undefined, undefined, true, undefined] },
             { desc: "at index 4", payload: { item, index: 4 }, expected: [undefined, undefined, undefined, undefined, true] },
-            { desc: "none, index out of bounds", payload: { index: 5 }, expected: [undefined, undefined, undefined, undefined, undefined] }
+            { desc: "none, index out of bounds", payload: { item, index: 5 }, expected: [undefined, undefined, undefined, undefined, undefined] }
         ].forEach(({ desc, expected, payload }) => {
             it(`should update item: ${desc}`, () => {
                 expect(
                     listReducer({ reducerName })(state, { ...action, payload }).map(({ updated }) => updated)
+                ).toEqual(
+                    expected
+                )
+            })
+        })
+    })
+
+    describe("UPDATE_ITEM_BY_KEY", () => {
+        const item = { updated: true }
+        const action = {
+            type: UPDATE_ITEM_BY_KEY,
+            meta: { reducerName }
+        };
+
+        [
+            { desc: "key id value 0", payload: { item: { id: 0, updated: true } }, expected: [true, undefined, undefined, undefined, undefined] },
+            { desc: "key id value 1", payload: { item: { id: 1, updated: true } }, expected: [undefined, true, undefined, undefined, undefined] },
+            { desc: "key id value 2", payload: { item: { id: 2, updated: true } }, expected: [undefined, undefined, true, undefined, undefined] },
+            { desc: "key id value 3", payload: { item: { id: 3, updated: true } }, expected: [undefined, undefined, undefined, true, undefined] },
+            { desc: "key id value 4", payload: { item: { id: 4, updated: true } }, expected: [undefined, undefined, undefined, undefined, true] },
+            { desc: "none, id value not found", payload: { item: { id: 5, updated: true } }, expected: [undefined, undefined, undefined, undefined, undefined] }
+        ].forEach(({ desc, expected, payload }) => {
+            it(`should update item: ${desc}`, () => {
+                expect(
+                    listReducer({ reducerName, key: "id" })(state, { ...action, payload }).map(({ updated }) => updated)
                 ).toEqual(
                     expected
                 )
