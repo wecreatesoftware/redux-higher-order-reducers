@@ -1,1 +1,1 @@
-# redux-reusable-reducers
+# @wecreatesoftware/redux-higher-order-reducers
