@@ -20,6 +20,7 @@ const updateItem = ({ state, payload: { index, item } }) => state.map((curItem, 
 
     return { ...curItem, ...item }
 })
+
 const updateItemByKey = ({ state, payload: { item }, key }) => state.map((curItem) => {
     if (curItem[key] !== item[key]) return curItem
 

@@ -5,6 +5,7 @@
     "main": "dist/redux-higher-order-reducers.js",
     "scripts": {
         "lint": "eslint src",
+`        "lint:fix": "eslint src --fix",
         "test": "jest"
     },
     "repository": {
