@@ -1,0 +1,15 @@
+sudo: required
+services:
+  - docker
+language: node_js
+cache:
+  directories:
+    - ~/.npm
+    - "node_modules"
+node_js:
+  - "8"
+install:
+  - npm i
+script:
+  - npm run test
+  - npm run lint
