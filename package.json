@@ -1,20 +1,22 @@
 {
-    "name": "@wecreatesoftware/redux-reusable-reducers",
+    "name": "@wecreatesoftware/redux-higher-order-reducers",
     "version": "1.0.0",
-    "description": "Reusable curried reducers.",
-    "main": "dist/redux-reusable-reducers.js",
+    "description": "Generic higher order reducers.",
+    "main": "dist/redux-higher-order-reducers.js",
     "scripts": {
+        "lint": "eslint src",
         "test": "jest"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/wecreatesoftware/redux-reusable-reducers"
+        "url": "https://github.com/wecreatesoftware/redux-higher-order-reducers"
     },
     "keywords": [
         "react",
         "redux",
         "react-redux",
-        "reducers"
+        "reducers",
+        "higher-order-reducers"
     ],
     "author": "Matt Struensee <matt@wecreate.software>",
     "license": "MIT",
@@ -22,6 +24,7 @@
         "@babel/core": "7.2.0",
         "@babel/preset-env": "7.2.0",
         "@babel/preset-react": "7.0.0",
+        "@wecreatesoftware/eslint-config": "1.2.8",
         "babel-core": "7.0.0-bridge.0",
         "babel-jest": "23.6.0",
         "jest": "23.6.0"

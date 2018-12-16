@@ -131,7 +131,6 @@ describe("listReducer", () => {
     })
 
     describe("UPDATE_ITEM_BY_KEY", () => {
-        const item = { updated: true }
         const action = {
             type: UPDATE_ITEM_BY_KEY,
             meta: { reducerName }
