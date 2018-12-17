@@ -1,4 +1,4 @@
-import { objectReducer, RESET_OBJECT, UPDATE_ITEM } from "./object.reducer"
+import { objectReducer, RESET_OBJECT, UPDATE_OBJECT } from "./object.reducer"
 
 describe("object.reducer", () => {
     const reducerName = "reducerName"
@@ -26,9 +26,9 @@ describe("object.reducer", () => {
         })
     })
 
-    describe("UPDATE_ITEM", () => {
+    describe("UPDATE_OBJECT", () => {
         const action = {
-            type: UPDATE_ITEM,
+            type: UPDATE_OBJECT,
             meta: { reducerName }
         };
 
@@ -80,7 +80,7 @@ describe("object.reducer", () => {
 
     describe("error", () => {
         const action = {
-            type: UPDATE_ITEM,
+            type: UPDATE_OBJECT,
             meta: { reducerName },
             error: true
         }

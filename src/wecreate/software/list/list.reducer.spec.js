@@ -105,7 +105,7 @@ describe("list.reducer", () => {
         })
     })
 
-    describe("UPDATE_ITEM", () => {
+    describe("UPDATE_OBJECT", () => {
         const item = { updated: true }
         const action = {
             type: UPDATE_ITEM,

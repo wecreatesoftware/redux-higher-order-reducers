@@ -7,3 +7,8 @@ export {
     updateItemAction,
     updateItemByKeyAction
 } from "./list/list.actions"
+
+export {
+    resetObjectAction,
+    updateObjectAction
+} from "./object/object.actions"
