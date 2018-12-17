@@ -1,6 +1,6 @@
 import { INSERT_ITEM, listReducer, REMOVE_ITEM, REMOVE_ITEM_BY_KEY, RESET_LIST, UPDATE_ITEM, UPDATE_ITEM_BY_KEY } from "./list.reducer"
 
-describe("listReducer", () => {
+describe("list.reducer", () => {
     const reducerName = "reducerName"
     let state
 

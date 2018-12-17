@@ -1,6 +1,6 @@
 import { objectReducer, RESET_OBJECT, UPDATE_ITEM } from "./object.reducer"
 
-describe("objectReducer", () => {
+describe("object.reducer", () => {
     const reducerName = "reducerName"
     let state
 
