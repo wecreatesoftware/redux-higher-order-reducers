@@ -4,6 +4,7 @@
     "description": "Generic higher order reducers.",
     "main": "dist/redux-higher-order-reducers.js",
     "scripts": {
+        "build": "webpack --mode production --config webpack.config.babel.js",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
         "test": "jest"
@@ -25,10 +26,14 @@
         "@babel/core": "7.2.0",
         "@babel/preset-env": "7.2.0",
         "@babel/preset-react": "7.0.0",
+        "@babel/register": "7.0.0",
         "@wecreatesoftware/eslint-config": "1.2.8",
         "babel-core": "7.0.0-bridge.0",
         "babel-jest": "23.6.0",
-        "jest": "23.6.0"
+        "jest": "23.6.0",
+        "parallel-webpack": "2.3.0",
+        "webpack": "4.27.1",
+        "webpack-cli": "3.1.2"
     },
     "dependencies": {}
 }

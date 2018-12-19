@@ -11,7 +11,6 @@ export const resetObjectAction = ({ reducerName }) => ({
     meta: { reducerName }
 })
 
-
 export const setObjectAction = ({ reducerName, object: payload }) => ({
     type: RESET_OBJECT,
     payload,
