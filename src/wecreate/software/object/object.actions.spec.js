@@ -1,4 +1,4 @@
-import { resetObjectAction, updateObjectAction } from "./object.actions"
+import { resetObjectAction, setObjectAction, updateObjectAction } from "./object.actions"
 
 describe("object.actions", () => {
     const reducerName = "reducerName"
@@ -30,6 +30,16 @@ describe("object.actions", () => {
             resetObjectAction({ reducerName })
         ).toEqual({
             type: "RESET_OBJECT",
+            meta: { reducerName: "reducerName" }
+        })
+    })
+
+    it("should create an action to set object", () => {
+        expect(
+            setObjectAction({ reducerName, object: { id: 0 } })
+        ).toEqual({
+            type: "RESET_OBJECT",
+            payload: { id: 0 },
             meta: { reducerName: "reducerName" }
         })
     })

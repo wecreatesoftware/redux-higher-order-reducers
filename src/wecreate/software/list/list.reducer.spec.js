@@ -162,7 +162,7 @@ describe("list.reducer", () => {
 
         it("should return initialState", () => {
             expect(
-                listReducer({ reducerName })(state, { ...action })
+                listReducer({ reducerName })(state, action)
             ).toEqual(
                 []
             )
@@ -178,7 +178,7 @@ describe("list.reducer", () => {
 
         it("should return a brand new state", () => {
             expect(
-                listReducer({ reducerName })(state, { ...action })
+                listReducer({ reducerName })(state, action)
             ).toEqual(
                 [{ id: 0 }]
             )
@@ -193,7 +193,7 @@ describe("list.reducer", () => {
 
         it("should return state", () => {
             expect(
-                listReducer({ reducerName })([], { ...action })
+                listReducer({ reducerName })([], action)
             ).toEqual(
                 []
             )
@@ -208,7 +208,7 @@ describe("list.reducer", () => {
 
         it("should return state", () => {
             expect(
-                listReducer({ reducerName })([], { ...action })
+                listReducer({ reducerName })([], action)
             ).toEqual(
                 []
             )

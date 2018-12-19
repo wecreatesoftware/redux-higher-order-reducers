@@ -3,7 +3,8 @@ export { objectReducer } from "./object/object.reducer"
 
 export {
     resetObjectAction,
-    updateObjectAction
+    updateObjectAction,
+    setObjectAction
 } from "./object/object.actions"
 
 export {

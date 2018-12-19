@@ -1,4 +1,4 @@
-import { objectReducer, RESET_OBJECT, UPDATE_OBJECT } from "./object.reducer"
+import { objectReducer, RESET_OBJECT, SET_OBJECT, UPDATE_OBJECT } from "./object.reducer"
 
 describe("object.reducer", () => {
     const reducerName = "reducerName"
@@ -56,9 +56,25 @@ describe("object.reducer", () => {
 
         it("should return initialState", () => {
             expect(
-                objectReducer({ reducerName })(state, { ...action })
+                objectReducer({ reducerName })(state, action)
             ).toEqual(
                 {}
+            )
+        })
+    })
+
+    describe("SET_OBJECT", () => {
+        const action = {
+            type: SET_OBJECT,
+            payload: { brand: "new" },
+            meta: { reducerName }
+        }
+
+        it("should return a brand new state", () => {
+            expect(
+                objectReducer({ reducerName })(state, action)
+            ).toEqual(
+                { brand: "new" }
             )
         })
     })
@@ -71,7 +87,7 @@ describe("object.reducer", () => {
 
         it("should return state", () => {
             expect(
-                objectReducer({ reducerName })({}, { ...action })
+                objectReducer({ reducerName })({}, action)
             ).toEqual(
                 {}
             )
@@ -87,7 +103,7 @@ describe("object.reducer", () => {
 
         it("should return state with error: true", () => {
             expect(
-                objectReducer({ reducerName })(state, { ...action })
+                objectReducer({ reducerName })(state, action)
             ).toEqual({
                 id: 0,
                 error: true
