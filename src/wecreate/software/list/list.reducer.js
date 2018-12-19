@@ -4,6 +4,7 @@ export const REMOVE_ITEM_BY_KEY = "REMOVE_ITEM_BY_KEY"
 export const UPDATE_ITEM = "UPDATE_ITEM"
 export const UPDATE_ITEM_BY_KEY = "UPDATE_ITEM_BY_KEY"
 export const RESET_LIST = "RESET_LIST"
+export const SET_LIST = "SET_LIST"
 
 const insertItem = ({ state, payload: { index, item } }) => [...state.slice(0, index), item, ...state.slice(index)]
 
@@ -44,6 +45,8 @@ export const listReducer = ({ reducerName = undefined, initialState = [], key = 
             return updateItemByKey({ state, payload, key })
         case RESET_LIST:
             return [...initialState]
+        case SET_LIST:
+            return [...payload]
         default:
             return state
     }

@@ -1,4 +1,4 @@
-import { INSERT_ITEM, listReducer, REMOVE_ITEM, REMOVE_ITEM_BY_KEY, RESET_LIST, UPDATE_ITEM, UPDATE_ITEM_BY_KEY } from "./list.reducer"
+import { INSERT_ITEM, listReducer, REMOVE_ITEM, REMOVE_ITEM_BY_KEY, RESET_LIST, SET_LIST, UPDATE_ITEM, UPDATE_ITEM_BY_KEY } from "./list.reducer"
 
 describe("list.reducer", () => {
     const reducerName = "reducerName"
@@ -165,6 +165,22 @@ describe("list.reducer", () => {
                 listReducer({ reducerName })(state, { ...action })
             ).toEqual(
                 []
+            )
+        })
+    })
+
+    describe("SET_LIST", () => {
+        const action = {
+            type: SET_LIST,
+            payload: [{ id: 0 }],
+            meta: { reducerName }
+        }
+
+        it("should return a brand new state", () => {
+            expect(
+                listReducer({ reducerName })(state, { ...action })
+            ).toEqual(
+                [{ id: 0 }]
             )
         })
     })
