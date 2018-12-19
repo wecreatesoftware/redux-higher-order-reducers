@@ -1,4 +1,4 @@
-import { insertItemAction, removeItemAction, removeItemByKeyAction, resetListAction, updateItemAction, updateItemByKeyAction } from "./list.actions"
+import { insertItemAction, removeItemAction, removeItemByKeyAction, resetListAction, setListAction, updateItemAction, updateItemByKeyAction } from "./list.actions"
 
 describe("list.actions", () => {
     const reducerName = "reducerName"
@@ -66,6 +66,16 @@ describe("list.actions", () => {
             resetListAction({ reducerName })
         ).toEqual({
             type: "RESET_LIST",
+            meta: { reducerName: "reducerName" }
+        })
+    })
+
+    it("should create an action to set list", () => {
+        expect(
+            setListAction({ reducerName, list: [] })
+        ).toEqual({
+            type: "SET_LIST",
+            payload: [],
             meta: { reducerName: "reducerName" }
         })
     })
