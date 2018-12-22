@@ -5,8 +5,19 @@ const createConfig = ({ libraryTarget }) => ({
     output: {
         path: `${__dirname}/dist`,
         filename: "redux-higher-order-reducers.js",
-        library: "redux-higher-order-reducers",
         libraryTarget
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules)/,
+                loader: "babel-loader",
+                options: {
+                    presets: ["@babel/preset-env", "@babel/preset-react"]
+                }
+            }
+        ]
     }
 })
 

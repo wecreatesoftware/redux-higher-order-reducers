@@ -30,6 +30,7 @@
         "@wecreatesoftware/eslint-config": "1.2.8",
         "babel-core": "7.0.0-bridge.0",
         "babel-jest": "23.6.0",
+        "babel-loader": "8.0.4",
         "jest": "23.6.0",
         "parallel-webpack": "2.3.0",
         "webpack": "4.27.1",
