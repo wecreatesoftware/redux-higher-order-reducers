@@ -1,4 +1,5 @@
 import { resetObjectAction, setObjectAction, updateObjectAction } from "./object.actions"
+import { RESET_OBJECT, UPDATE_OBJECT } from "./object.reducer"
 
 describe("object.actions", () => {
     const reducerName = "reducerName"
@@ -7,7 +8,7 @@ describe("object.actions", () => {
         expect(
             updateObjectAction({ reducerName, updates: { updated: true } })
         ).toEqual({
-            type: "UPDATE_OBJECT",
+            type: UPDATE_OBJECT,
             payload: { updated: true },
             meta: { reducerName: "reducerName" }
         })
@@ -16,7 +17,7 @@ describe("object.actions", () => {
         expect(
             updateObjectAction({ reducerName, updates: { updated: true, alsoUpdated: true } })
         ).toEqual({
-            type: "UPDATE_OBJECT",
+            type: UPDATE_OBJECT,
             payload: {
                 alsoUpdated: true,
                 updated: true
@@ -29,7 +30,7 @@ describe("object.actions", () => {
         expect(
             resetObjectAction({ reducerName })
         ).toEqual({
-            type: "RESET_OBJECT",
+            type: RESET_OBJECT,
             meta: { reducerName: "reducerName" }
         })
     })
@@ -38,7 +39,7 @@ describe("object.actions", () => {
         expect(
             setObjectAction({ reducerName, object: { id: 0 } })
         ).toEqual({
-            type: "RESET_OBJECT",
+            type: RESET_OBJECT,
             payload: { id: 0 },
             meta: { reducerName: "reducerName" }
         })

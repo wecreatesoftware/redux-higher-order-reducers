@@ -1,10 +1,10 @@
-export const INSERT_ITEM = "INSERT_ITEM"
-export const REMOVE_ITEM = "REMOVE_ITEM"
-export const REMOVE_ITEM_BY_KEY = "REMOVE_ITEM_BY_KEY"
-export const UPDATE_ITEM = "UPDATE_ITEM"
-export const UPDATE_ITEM_BY_KEY = "UPDATE_ITEM_BY_KEY"
-export const RESET_LIST = "RESET_LIST"
-export const SET_LIST = "SET_LIST"
+export const INSERT_ITEM = "@@wecreatesoftware/redux-higher-order-reducers/insert-item"
+export const REMOVE_ITEM = "@@wecreatesoftware/redux-higher-order-reducers/remove-item"
+export const REMOVE_ITEM_BY_KEY = "@@wecreatesoftware/redux-higher-order-reducers/remove-item-by-key"
+export const UPDATE_ITEM = "@@wecreatesoftware/redux-higher-order-reducers/update-item"
+export const UPDATE_ITEM_BY_KEY = "@@wecreatesoftware/redux-higher-order-reducers/update-item-by-key"
+export const RESET_LIST = "@@wecreatesoftware/redux-higher-order-reducers/reset-list"
+export const SET_LIST = "@@wecreatesoftware/redux-higher-order-reducers/set-list"
 
 const insertItem = ({ state, payload: { index, item } }) => [...state.slice(0, index), item, ...state.slice(index)]
 
