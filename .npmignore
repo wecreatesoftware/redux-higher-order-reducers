@@ -1,0 +1,17 @@
+*.iml
+.idea
+.junk
+coverage
+package-lock.json
+yarn.lock
+node_modules
+*.log
+.DS_Store
+src
+.babelrc
+.eslintrc
+.gitignore
+.npmrc
+.travis.yml
+jest.config.js
+webpack.config.babel.js

@@ -7,7 +7,7 @@ How to use the reusable reducers ...
 import { listReducer } from "@wecreatesoftware/redux-higher-order-reducers"
 import { LIST_A, LIST_B, LIST_C, OBJECT_A, OBJECT_B } from "./some/constant/file"
 
-export cost reducers = combineReducers({
+export const reducers = combineReducers({
   [LIST_A]: listReducer({ reducerName: LIST_A }),
   [LIST_B]: listReducer({ reducerName: LIST_B }),
   [LIST_C]: listReducer({ reducerName: LIST_C, key: "id" }),
@@ -17,4 +17,4 @@ export cost reducers = combineReducers({
 ```
 
 
-in progres ...
+in progress ...
