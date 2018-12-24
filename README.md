@@ -42,9 +42,9 @@ Now that the store has the reducer, we need to dispatch actions.  Everything is 
 ```javascript
 dispatch(insertItemAction({ reducerName: LIST_A, item: { id: 1 }, index: 3 }))
 dispatch(removeItemAction({ reducerName: LIST_A, index: 3 }))
-dispatch(removeItemByKeyAction({ reducerName: LIST_A, item: { id: 1 } }))
+dispatch(removeItemByKeyAction({ reducerName: LIST_C, item: { id: 1 } }))
 dispatch(updateItemAction({ reducerName: LIST_A, item: { id: 1, newKey: "newValue" }, index: 3 }))
-dispatch(updateItemByKeyAction({ reducerName: LIST_A, item: { id: 1, newKey: "newValue" } }))
+dispatch(updateItemByKeyAction({ reducerName: LIST_C, item: { id: 1, newKey: "newValue" } }))
 dispatch(resetListAction({ reducerName: LIST_A }))
 dispatch(setListAction({ reducerName: LIST_A, list: []}))
 ```
