@@ -3,6 +3,8 @@ https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic
 
 How to use the reusable reducers ...
 
+Currently, there is a listReducer and ObjectReducer ... here is how to use them.
+
 ```javascript
 import { 
     listReducer, 
@@ -25,5 +27,24 @@ export const reducers = combineReducers({
 })
 ```
 
+Now that the store has the reducer, we need to dispatch actions.  Everything is the same as usual but now we need to tell the action which "reducer" to update.
 
-in progress ...
+##List Reducer
+* insertItemAction - insert item into list at given index.
+* removeItemAction - remove item from list at given index.
+* removeItemByKeyAction - remove item from list by "key".
+* updateItemAction - update item at given index.
+* updateItemByKeyAction - update item by "key".
+* resetListAction - reset list to initial state (default []).
+* setListAction - completely use new state and override current.
+
+
+```javascript
+dispatch(insertItemAction({ reducerName: LIST_A, item: { id: 1 }, index: 3 }))
+dispatch(removeItemAction({ reducerName: LIST_A, index: 3 }))
+dispatch(removeItemByKeyAction({ reducerName: LIST_A, item: { id: 1 } }))
+dispatch(updateItemAction({ reducerName: LIST_A, item: { id: 1, newKey: "newValue" }, index: 3 }))
+dispatch(updateItemByKeyAction({ reducerName: LIST_A, item: { id: 1, newKey: "newValue" } }))
+dispatch(resetListAction())
+dispatch(setListAction({ reducerName: LIST_A, list: []}))
+```
