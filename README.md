@@ -45,6 +45,6 @@ dispatch(removeItemAction({ reducerName: LIST_A, index: 3 }))
 dispatch(removeItemByKeyAction({ reducerName: LIST_A, item: { id: 1 } }))
 dispatch(updateItemAction({ reducerName: LIST_A, item: { id: 1, newKey: "newValue" }, index: 3 }))
 dispatch(updateItemByKeyAction({ reducerName: LIST_A, item: { id: 1, newKey: "newValue" } }))
-dispatch(resetListAction())
+dispatch(resetListAction({ reducerName: LIST_A }))
 dispatch(setListAction({ reducerName: LIST_A, list: []}))
 ```
