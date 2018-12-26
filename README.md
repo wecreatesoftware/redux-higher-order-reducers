@@ -3,7 +3,7 @@ https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic
 
 How to use the reusable reducers ...
 
-Currently, there is a listReducer and ObjectReducer ... here is how to use them.
+Currently, there is a listReducer and objectReducer ... here is how to use them.
 
 ```javascript
 import { 
@@ -47,4 +47,35 @@ dispatch(updateItemAction({ reducerName: LIST_A, item: { id: 1, newKey: "newValu
 dispatch(updateItemByKeyAction({ reducerName: LIST_C, item: { id: 1, newKey: "newValue" } }))
 dispatch(resetListAction({ reducerName: LIST_A }))
 dispatch(setListAction({ reducerName: LIST_A, list: []}))
+```
+
+##Object Reducer
+* updateObjectAction - update object key/value, can pass multiple key/value pair.
+* resetObjectAction - reset object to initial state (default {}).
+* setObjectAction - completely use new state and override current.
+    
+```javascript
+dispatch(updateObjectAction({ reducerName: OBJECT_A, updates: { loading: true } }))
+dispatch(resetObjectAction({ reducerName: OBJECT_A }))
+dispatch(setObjectAction({ reducerName: OBJECT_B, object: {}}))
+```
+
+It might be annoying constantly setting reducer name right?  I certainly thing so ...
+If you agree, you can do a curry function for each action for your reducers as follows.
+
+```javascript
+import { 
+    objectReducer, 
+    updateObjectAction 
+} from "@wecreatesoftware/redux-higher-order-reducers"
+import { SOME_NAME } from "../some/constant/file"
+
+export const reducers = combineReducers({
+  [ SOME_NAME ]: objectReducer({ reducerName: SOME_NAME }),
+})
+
+
+export const updateSomeNameAction = updates => updateObjectAction({ reducerName: SOME_NAME, updates })
+
+dispatch(updateSomeNameAction({ loading: false, cool: "beans", foo: "bar" }))
 ```
