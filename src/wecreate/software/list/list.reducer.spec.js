@@ -1,4 +1,4 @@
-import { INSERT_ITEM, listReducer, REMOVE_ITEM, REMOVE_ITEM_BY_KEY, RESET_LIST, SET_LIST, UPDATE_ITEM, UPDATE_ITEM_BY_KEY } from "./list.reducer"
+import { INSERT_ITEM, listReducer, REMOVE_ITEM, REMOVE_ITEM_BY_KEY, RESET_LIST, SET_LIST, UPDATE_ITEM, UPDATE_ITEM_BY_KEY, UPDATE_ITEMS_BY_KEY } from "./list.reducer"
 
 describe("list.reducer", () => {
     const reducerName = "reducerName"
@@ -145,6 +145,32 @@ describe("list.reducer", () => {
             { desc: "none, id value not found", payload: { item: { id: 5, updated: true } }, expected: [undefined, undefined, undefined, undefined, undefined] }
         ].forEach(({ desc, expected, payload }) => {
             it(`should update item: ${desc}`, () => {
+                expect(
+                    listReducer({ reducerName, key: "id" })(state, { ...action, payload }).map(({ updated }) => updated)
+                ).toEqual(
+                    expected
+                )
+            })
+        })
+    })
+
+    describe("UPDATE_ITEMS_BY_KEY", () => {
+        const action = {
+            type: UPDATE_ITEMS_BY_KEY,
+            meta: { reducerName }
+        };
+
+        [
+            { desc: "key id value 0 and 1", payload: { items: [{ id: 0, updated: true }, { id: 1, updated: true }] }, expected: [true, true, undefined, undefined, undefined] },
+            { desc: "key id value 1 and 2", payload: { items: [{ id: 1, updated: true }, { id: 2, updated: true }] }, expected: [undefined, true, true, undefined, undefined] },
+            { desc: "key id value 2 and 3", payload: { items: [{ id: 2, updated: true }, { id: 3, updated: true }] }, expected: [undefined, undefined, true, true, undefined] },
+            { desc: "key id value 3 and 4", payload: { items: [{ id: 3, updated: true }, { id: 4, updated: true }] }, expected: [undefined, undefined, undefined, true, true] },
+            { desc: "key id value 4 and 5", payload: { items: [{ id: 4, updated: true }, { id: 5, updated: true }] }, expected: [undefined, undefined, undefined, undefined, true] },
+            { desc: "key id value 2 and 4", payload: { items: [{ id: 2, updated: true }, { id: 4, updated: true }] }, expected: [undefined, undefined, true, undefined, true] },
+            { desc: "key id value 3, 6 not found", payload: { items: [{ id: 3, updated: true }, { id: 6, updated: true }] }, expected: [undefined, undefined, undefined, true, undefined] },
+            { desc: "none, id values not found", payload: { items: [{ id: 5, updated: true }, { id: 6, updated: true }] }, expected: [undefined, undefined, undefined, undefined, undefined] }
+        ].forEach(({ desc, expected, payload }) => {
+            it(`should update items: ${desc}`, () => {
                 expect(
                     listReducer({ reducerName, key: "id" })(state, { ...action, payload }).map(({ updated }) => updated)
                 ).toEqual(
