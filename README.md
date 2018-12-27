@@ -29,7 +29,7 @@ export const reducers = combineReducers({
 
 Now that the store has the reducer, we need to dispatch actions.  Everything is the same as usual but now we need to tell the action which "reducer" to update.
 
-##List Reducer
+#List Reducer
 * insertItemAction - insert item into list at given index.
 * removeItemAction - remove item from list at given index.
 * removeItemByKeyAction - remove item from list by "key".
@@ -49,7 +49,7 @@ dispatch(resetListAction({ reducerName: LIST_A }))
 dispatch(setListAction({ reducerName: LIST_A, list: []}))
 ```
 
-##Object Reducer
+#Object Reducer
 * updateObjectAction - update object key/value, can pass multiple key/value pair.
 * resetObjectAction - reset object to initial state (default {}).
 * setObjectAction - completely use new state and override current.
@@ -60,7 +60,7 @@ dispatch(resetObjectAction({ reducerName: OBJECT_A }))
 dispatch(setObjectAction({ reducerName: OBJECT_B, object: {}}))
 ```
 
-It might be annoying constantly setting reducer name right?  I certainly thing so ...
+It might be annoying constantly setting reducer name right?  I certainly think so ...
 If you agree, you can do a curry function for each action for your reducers as follows.
 
 ```javascript

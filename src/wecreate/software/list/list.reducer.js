@@ -2,6 +2,7 @@ export const INSERT_ITEM = "@@wecreatesoftware/redux-higher-order-reducers/inser
 export const REMOVE_ITEM = "@@wecreatesoftware/redux-higher-order-reducers/remove-item"
 export const REMOVE_ITEM_BY_KEY = "@@wecreatesoftware/redux-higher-order-reducers/remove-item-by-key"
 export const UPDATE_ITEM = "@@wecreatesoftware/redux-higher-order-reducers/update-item"
+export const UPDATE_ITEMS = "@@wecreatesoftware/redux-higher-order-reducers/update-items"
 export const UPDATE_ITEM_BY_KEY = "@@wecreatesoftware/redux-higher-order-reducers/update-item-by-key"
 export const RESET_LIST = "@@wecreatesoftware/redux-higher-order-reducers/reset-list"
 export const SET_LIST = "@@wecreatesoftware/redux-higher-order-reducers/set-list"
@@ -18,6 +19,13 @@ const removeItemByKey = ({ state, payload: { item }, key }) => {
 
 const updateItem = ({ state, payload: { index, item } }) => state.map((curItem, curIndex) => {
     if (curIndex !== index) return curItem
+
+    return { ...curItem, ...item }
+})
+
+const updateItems = ({ state, payload: { items }, key }) => state.map((curItem) => {
+    const item = items.find(it => curItem[key] === it[key])
+    if (!item) return curItem
 
     return { ...curItem, ...item }
 })
@@ -41,6 +49,8 @@ export const listReducer = ({ reducerName = undefined, initialState = [], key = 
             return removeItemByKey({ state, payload, key })
         case UPDATE_ITEM:
             return updateItem({ state, payload })
+        case UPDATE_ITEMS:
+            return updateItems({ state, payload, key })
         case UPDATE_ITEM_BY_KEY:
             return updateItemByKey({ state, payload, key })
         case RESET_LIST:
