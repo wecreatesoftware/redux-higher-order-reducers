@@ -1,4 +1,4 @@
-import { INSERT_ITEM, listReducer, REMOVE_ITEM, REMOVE_ITEM_BY_KEY, RESET_LIST, SET_LIST, UPDATE_ITEM, UPDATE_ITEM_BY_KEY, UPDATE_ITEMS } from "./list.reducer"
+import { INSERT_ITEM, listReducer, REMOVE_ITEM, REMOVE_ITEM_BY_KEY, RESET_LIST, SET_LIST, UPDATE_ITEM, UPDATE_ITEM_BY_KEY, UPDATE_ITEMS_BY_KEY } from "./list.reducer"
 
 describe("list.reducer", () => {
     const reducerName = "reducerName"
@@ -154,9 +154,9 @@ describe("list.reducer", () => {
         })
     })
 
-    describe("UPDATE_ITEMS", () => {
+    describe("UPDATE_ITEMS_BY_KEY", () => {
         const action = {
-            type: UPDATE_ITEMS,
+            type: UPDATE_ITEMS_BY_KEY,
             meta: { reducerName }
         };
 
@@ -170,7 +170,7 @@ describe("list.reducer", () => {
             { desc: "key id value 3, 6 not found", payload: { items: [{ id: 3, updated: true }, { id: 6, updated: true }] }, expected: [undefined, undefined, undefined, true, undefined] },
             { desc: "none, id values not found", payload: { items: [{ id: 5, updated: true }, { id: 6, updated: true }] }, expected: [undefined, undefined, undefined, undefined, undefined] }
         ].forEach(({ desc, expected, payload }) => {
-            it(`should update item: ${desc}`, () => {
+            it(`should update items: ${desc}`, () => {
                 expect(
                     listReducer({ reducerName, key: "id" })(state, { ...action, payload }).map(({ updated }) => updated)
                 ).toEqual(

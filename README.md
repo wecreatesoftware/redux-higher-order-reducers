@@ -35,6 +35,7 @@ Now that the store has the reducer, we need to dispatch actions.  Everything is 
 * removeItemByKeyAction - remove item from list by "key".
 * updateItemAction - update item at given index.
 * updateItemByKeyAction - update item by "key".
+* updateItemsByKeyAction - update items by "key".
 * resetListAction - reset list to initial state (default []).
 * setListAction - completely use new state and override current.
 
@@ -45,6 +46,7 @@ dispatch(removeItemAction({ reducerName: LIST_A, index: 3 }))
 dispatch(removeItemByKeyAction({ reducerName: LIST_C, item: { id: 1 } }))
 dispatch(updateItemAction({ reducerName: LIST_A, item: { id: 1, newKey: "newValue" }, index: 3 }))
 dispatch(updateItemByKeyAction({ reducerName: LIST_C, item: { id: 1, newKey: "newValue" } }))
+dispatch(updateItemsByKeyAction({ reducerName: LIST_C, items: [ { id: 1, newKey: "newValue" }, { id: 2, newKey: "newValue" } ] }))
 dispatch(resetListAction({ reducerName: LIST_A }))
 dispatch(setListAction({ reducerName: LIST_A, list: []}))
 ```
@@ -73,7 +75,6 @@ import { SOME_NAME } from "../some/constant/file"
 export const reducers = combineReducers({
   [ SOME_NAME ]: objectReducer({ reducerName: SOME_NAME }),
 })
-
 
 export const updateSomeNameAction = updates => updateObjectAction({ reducerName: SOME_NAME, updates })
 
