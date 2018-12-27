@@ -18,7 +18,8 @@
         "redux",
         "react-redux",
         "reducers",
-        "higher-order-reducers"
+        "higher order reducers",
+        "reuseable reducers"
     ],
     "author": "Matt Struensee <matt@wecreate.software>",
     "license": "MIT",
