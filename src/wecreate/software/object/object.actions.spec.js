@@ -1,5 +1,12 @@
-import { resetObjectAction, setObjectAction, updateObjectAction } from "./object.actions"
-import { RESET_OBJECT, UPDATE_OBJECT } from "./object.reducer"
+import {
+    resetObjectAction,
+    setObjectAction,
+    updateObjectAction
+} from "./object.actions"
+import {
+    RESET_OBJECT,
+    UPDATE_OBJECT
+} from "./object.reducer"
 
 describe("object.actions", () => {
     const reducerName = "reducerName"
