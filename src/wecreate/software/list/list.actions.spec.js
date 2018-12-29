@@ -1,5 +1,23 @@
-import { insertItemAction, removeItemAction, removeItemByKeyAction, resetListAction, setListAction, updateItemAction, updateItemByKeyAction, updateItemsByKeyAction } from "./list.actions"
-import { INSERT_ITEM, REMOVE_ITEM, REMOVE_ITEM_BY_KEY, RESET_LIST, SET_LIST, UPDATE_ITEM, UPDATE_ITEM_BY_KEY, UPDATE_ITEMS_BY_KEY } from "./list.reducer"
+import {
+    insertItemAction,
+    removeItemAction,
+    removeItemByKeyAction,
+    resetListAction,
+    setListAction,
+    updateItemAction,
+    updateItemByKeyAction,
+    updateItemsByKeyAction
+} from "./list.actions"
+import {
+    INSERT_ITEM,
+    REMOVE_ITEM,
+    REMOVE_ITEM_BY_KEY,
+    RESET_LIST,
+    SET_LIST,
+    UPDATE_ITEM,
+    UPDATE_ITEM_BY_KEY,
+    UPDATE_ITEMS_BY_KEY
+} from "./list.types"
 
 describe("list.actions", () => {
     const reducerName = "reducerName"
@@ -63,7 +81,7 @@ describe("list.actions", () => {
     })
 
     it("should create an action to update items by key", () => {
-        const items = [item, item]
+        const items = [ item, item ]
 
         expect(
             updateItemsByKeyAction({ items, reducerName })
