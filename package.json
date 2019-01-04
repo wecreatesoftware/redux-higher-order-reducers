@@ -1,9 +1,8 @@
 {
     "name": "@wecreatesoftware/redux-higher-order-reducers",
-    "version": "1.0.16",
+    "version": "1.0.18",
     "description": "Generic higher order reducers.",
     "main": "dist/redux-higher-order-reducers.js",
-    "module": "src/wecreate/software/index.js",
     "scripts": {
         "build": "npm run lint && npm run test && npm run compile",
         "compile": "webpack --mode production --config webpack.config.babel.js",
