@@ -5,7 +5,6 @@ const createConfig = ({ libraryTarget }) => ({
     output: {
         path: `${__dirname}/dist`,
         filename: "redux-higher-order-reducers.js",
-        library: "redux-higher-order-reducers",
         libraryTarget
     },
     module: {
