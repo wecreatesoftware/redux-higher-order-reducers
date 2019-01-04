@@ -80,3 +80,18 @@ export const updateSomeNameAction = updates => updateObjectAction({ reducerName:
 
 dispatch(updateSomeNameAction({ loading: false, cool: "beans", foo: "bar" }))
 ```
+
+Each reducer, consider it like a micro service, it does one thing and one thing well.
+
+
+With a reducer handling very specific data, adding a library like [reselect](https://www.npmjs.com/package/reselect) makes it easy to select, combine, filter data.
+Making selectors to get specific pieces of data allows you to select the exact information needed for the given component, vs giving the component some high level object and use a couple keys from it.
+
+The selectors can easily make dumb components.  If where data was stored was, changed, the selectors can be easily updated without the components even knowing anything about the data structure... it also can clean up components by not having to do a lot of null checks.  Using default props to set lists to empty, bools to false/true, etc will allow destructured props not break in random scenarios.
+
+```javascript
+cannot destructure property of 'undefined' or 'null'
+```
+
+The usage of the higher order reducers are endless, you just have to be created.  I have been using them for a short time, and it has made my life a lot easier.  Little to no duplicate data, creating new components and getting data has been easy, and I never have to write crud reducers, reducer tests, actions, action tests anymore ;) !!
+
