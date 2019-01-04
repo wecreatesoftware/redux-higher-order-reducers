@@ -9,7 +9,6 @@
         "compile": "webpack --mode production --config webpack.config.babel.js",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
-        "publish": "npm publish",
         "test": "jest"
     },
     "repository": {
