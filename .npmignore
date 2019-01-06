@@ -16,3 +16,4 @@ src
 jest.config.js
 webpack.config.babel.js
 .editorconfig
+demo

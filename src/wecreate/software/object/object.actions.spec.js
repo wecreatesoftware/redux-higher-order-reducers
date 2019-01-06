@@ -5,6 +5,7 @@ import {
 } from "./object.actions"
 import {
     RESET_OBJECT,
+    SET_OBJECT,
     UPDATE_OBJECT
 } from "./object.reducer"
 
@@ -46,7 +47,7 @@ describe("object.actions", () => {
         expect(
             setObjectAction({ reducerName, object: { id: 0 } })
         ).toEqual({
-            type: RESET_OBJECT,
+            type: SET_OBJECT,
             payload: { id: 0 },
             meta: { reducerName: "reducerName" }
         })

@@ -1,0 +1,8 @@
+{
+    "name": "redux-higher-order-reducers-demo",
+    "version": "1.0.0",
+    "scripts": {
+        "demo": "webpack -p && webpack-dev-server --open"
+    },
+    "license": "MIT"
+}

@@ -95,3 +95,8 @@ cannot destructure property of 'undefined' or 'null'
 
 The usage of the higher order reducers are endless, you just have to be created.  I have been using them for a short time, and it has made my life a lot easier.  Little to no duplicate data, creating new components and getting data has been easy, and I never have to write crud reducers, reducer tests, actions, action tests anymore ;) !!
 
+Demo: 
+```
+cd demo
+npm run demo
+```

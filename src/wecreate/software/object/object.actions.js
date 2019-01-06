@@ -1,5 +1,6 @@
 import {
     RESET_OBJECT,
+    SET_OBJECT,
     UPDATE_OBJECT
 } from "./object.reducer"
 
@@ -15,7 +16,7 @@ export const resetObjectAction = ({ reducerName }) => ({
 })
 
 export const setObjectAction = ({ reducerName, object: payload }) => ({
-    type: RESET_OBJECT,
+    type: SET_OBJECT,
     payload,
     meta: { reducerName }
 })
