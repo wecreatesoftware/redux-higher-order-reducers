@@ -2,7 +2,7 @@ import {
     RESET_OBJECT,
     SET_OBJECT,
     UPDATE_OBJECT
-} from "./object.reducer"
+} from "./object.types"
 
 export const updateObjectAction = ({ reducerName, updates }) => ({
     type: UPDATE_OBJECT,

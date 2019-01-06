@@ -1,6 +1,8 @@
-export const UPDATE_OBJECT = "@@wecreatesoftware/redux-higher-order-reducers/update-object"
-export const RESET_OBJECT = "@@wecreatesoftware/redux-higher-order-reducers/reset-object"
-export const SET_OBJECT = "@@wecreatesoftware/redux-higher-order-reducers/set-object"
+import {
+    RESET_OBJECT,
+    SET_OBJECT,
+    UPDATE_OBJECT
+} from "./object.types"
 
 export const objectReducer = ({ reducerName = undefined, initialState = {} } = {}) => (state = initialState, { type = undefined, payload = {}, meta = {}, error = undefined } = {}) => {
     if (meta.reducerName !== reducerName) return state

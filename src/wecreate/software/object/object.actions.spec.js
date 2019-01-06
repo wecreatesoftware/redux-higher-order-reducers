@@ -7,7 +7,7 @@ import {
     RESET_OBJECT,
     SET_OBJECT,
     UPDATE_OBJECT
-} from "./object.reducer"
+} from "./object.types"
 
 describe("object.actions", () => {
     const reducerName = "reducerName"

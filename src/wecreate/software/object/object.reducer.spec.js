@@ -1,9 +1,9 @@
+import { objectReducer } from "./object.reducer"
 import {
-    objectReducer,
     RESET_OBJECT,
     SET_OBJECT,
     UPDATE_OBJECT
-} from "./object.reducer"
+} from "./object.types"
 
 describe("object.reducer", () => {
     const reducerName = "reducerName"
