@@ -9,3 +9,7 @@ node_modules
 .DS_Store
 dist
 demo/bundle.js
+esm
+lib
+commonjs
+umd
