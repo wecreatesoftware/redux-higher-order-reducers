@@ -9,5 +9,5 @@ ReactDOM.render(
     <Provider store={ createStore(reducers) }>
         <ObjectReducerContainer/>
     </Provider>,
-    document.getElementById("demo")
+    document.getElementById("demo"),
 )

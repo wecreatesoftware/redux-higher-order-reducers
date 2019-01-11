@@ -6,7 +6,7 @@ import {
     SET_LIST,
     UPDATE_ITEM,
     UPDATE_ITEM_BY_KEY,
-    UPDATE_ITEMS_BY_KEY
+    UPDATE_ITEMS_BY_KEY,
 } from "./list.types"
 import {
     insertItem,
@@ -14,7 +14,7 @@ import {
     removeItemByKey,
     updateItem,
     updateItemByKey,
-    updateItemsByKey
+    updateItemsByKey,
 } from "./list.util"
 
 export const listReducer = ({ reducerName = undefined, initialState = [], key = undefined } = {}) => (state = initialState, { type = undefined, payload = {}, meta = {}, error = undefined } = {}) => {

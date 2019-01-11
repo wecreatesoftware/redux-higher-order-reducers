@@ -5,7 +5,7 @@ import {
     removeItemByKey,
     updateItem,
     updateItemByKey,
-    updateItemsByKey
+    updateItemsByKey,
 } from "./list.util"
 import {
     INSERT_ITEM,
@@ -15,7 +15,7 @@ import {
     SET_LIST,
     UPDATE_ITEM,
     UPDATE_ITEM_BY_KEY,
-    UPDATE_ITEMS_BY_KEY
+    UPDATE_ITEMS_BY_KEY,
 } from "./list.types"
 
 jest.mock("./list.util")
@@ -34,14 +34,14 @@ describe("list.reducer", () => {
             { id: 1 },
             { id: 2 },
             { id: 3 },
-            { id: 4 }
+            { id: 4 },
         ]
         action = {
             payload: {
                 item,
-                index
+                index,
             },
-            meta: { reducerName }
+            meta: { reducerName },
         }
     })
 
@@ -49,13 +49,13 @@ describe("list.reducer", () => {
         [
             { desc: "no options", expected: [] },
             { desc: "options with only reducer name", options: { reducerName }, expected: [] },
-            { desc: "options with reducer name and initialState", options: { reducerName, initialState: null }, expected: null }
+            { desc: "options with reducer name and initialState", options: { reducerName, initialState: null }, expected: null },
         ].forEach(({ desc, expected, options }) => {
             it(`should return initialState: ${desc}`, () => {
                 expect(
-                    listReducer(options)()
+                    listReducer(options)(),
                 ).toEqual(
-                    expected
+                    expected,
                 )
             })
         })
@@ -65,14 +65,14 @@ describe("list.reducer", () => {
         it("should call insertItem", () => {
             action = {
                 ...action,
-                type: INSERT_ITEM
+                type: INSERT_ITEM,
             }
             listReducer({ reducerName })(state, action)
 
             expect(
-                insertItem
+                insertItem,
             ).toHaveBeenCalledTimes(
-                1
+                1,
             )
         })
     })
@@ -81,14 +81,14 @@ describe("list.reducer", () => {
         it("should call removeItem", () => {
             action = {
                 ...action,
-                type: REMOVE_ITEM
+                type: REMOVE_ITEM,
             }
             listReducer({ reducerName })(state, action)
 
             expect(
-                removeItem
+                removeItem,
             ).toHaveBeenCalledTimes(
-                1
+                1,
             )
         })
     })
@@ -97,14 +97,14 @@ describe("list.reducer", () => {
         it("should call removeItemByKey", () => {
             action = {
                 ...action,
-                type: REMOVE_ITEM_BY_KEY
+                type: REMOVE_ITEM_BY_KEY,
             }
             listReducer({ reducerName })(state, action)
 
             expect(
-                removeItemByKey
+                removeItemByKey,
             ).toHaveBeenCalledTimes(
-                1
+                1,
             )
         })
     })
@@ -113,14 +113,14 @@ describe("list.reducer", () => {
         it("should call updateItem", () => {
             action = {
                 ...action,
-                type: UPDATE_ITEM
+                type: UPDATE_ITEM,
             }
             listReducer({ reducerName })(state, action)
 
             expect(
-                updateItem
+                updateItem,
             ).toHaveBeenCalledTimes(
-                1
+                1,
             )
         })
     })
@@ -129,14 +129,14 @@ describe("list.reducer", () => {
         it("should call updateItemByKey", () => {
             action = {
                 ...action,
-                type: UPDATE_ITEM_BY_KEY
+                type: UPDATE_ITEM_BY_KEY,
             }
             listReducer({ reducerName })(state, action)
 
             expect(
-                updateItemByKey
+                updateItemByKey,
             ).toHaveBeenCalledTimes(
-                1
+                1,
             )
         })
     })
@@ -145,14 +145,14 @@ describe("list.reducer", () => {
         it("should call updateItemsByKey", () => {
             action = {
                 ...action,
-                type: UPDATE_ITEMS_BY_KEY
+                type: UPDATE_ITEMS_BY_KEY,
             }
             listReducer({ reducerName })(state, action)
 
             expect(
-                updateItemsByKey
+                updateItemsByKey,
             ).toHaveBeenCalledTimes(
-                1
+                1,
             )
         })
     })
@@ -161,14 +161,14 @@ describe("list.reducer", () => {
         it("should reset list to initial state", () => {
             action = {
                 ...action,
-                type: RESET_LIST
+                type: RESET_LIST,
             }
             listReducer({ reducerName })(state, action)
 
             expect(
-                listReducer({ reducerName })(state, action)
+                listReducer({ reducerName })(state, action),
             ).toEqual(
-                []
+                [],
             )
         })
     })
@@ -178,13 +178,13 @@ describe("list.reducer", () => {
             action = {
                 ...action,
                 type: SET_LIST,
-                payload: [ { id: 0 } ]
+                payload: [ { id: 0 } ],
             }
 
             expect(
-                listReducer({ reducerName })(state, action)
+                listReducer({ reducerName })(state, action),
             ).toEqual(
-                [ { id: 0 } ]
+                [ { id: 0 } ],
             )
         })
     })
@@ -193,13 +193,13 @@ describe("list.reducer", () => {
         it("should return state", () => {
             action = {
                 ...action,
-                type: "UNKNOWN"
+                type: "UNKNOWN",
             }
 
             expect(
-                listReducer({ reducerName })([], action)
+                listReducer({ reducerName })([], action),
             ).toEqual(
-                []
+                [],
             )
         })
     })
@@ -208,13 +208,13 @@ describe("list.reducer", () => {
         it("should return state", () => {
             action = {
                 ...action,
-                error: true
+                error: true,
             }
 
             expect(
-                listReducer({ reducerName })([], action)
+                listReducer({ reducerName })([], action),
             ).toEqual(
-                []
+                [],
             )
         })
     })

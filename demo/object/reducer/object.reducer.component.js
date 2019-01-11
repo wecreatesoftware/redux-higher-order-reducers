@@ -20,8 +20,8 @@ export class ObjectReducerComponent extends Component {
             },
             state: {
                 key,
-                value
-            }
+                value,
+            },
         } = this
 
         return (

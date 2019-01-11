@@ -1,12 +1,12 @@
 import {
     resetObjectAction,
     setObjectAction,
-    updateObjectAction
+    updateObjectAction,
 } from "./object.actions"
 import {
     RESET_OBJECT,
     SET_OBJECT,
-    UPDATE_OBJECT
+    UPDATE_OBJECT,
 } from "./object.types"
 
 describe("object.actions", () => {
@@ -14,42 +14,42 @@ describe("object.actions", () => {
 
     it("should create an action to update key value pair", () => {
         expect(
-            updateObjectAction({ reducerName, updates: { updated: true } })
+            updateObjectAction({ reducerName, updates: { updated: true } }),
         ).toEqual({
             type: UPDATE_OBJECT,
             payload: { updated: true },
-            meta: { reducerName: "reducerName" }
+            meta: { reducerName: "reducerName" },
         })
     })
     it("should create an action to update key value pairs", () => {
         expect(
-            updateObjectAction({ reducerName, updates: { updated: true, alsoUpdated: true } })
+            updateObjectAction({ reducerName, updates: { updated: true, alsoUpdated: true } }),
         ).toEqual({
             type: UPDATE_OBJECT,
             payload: {
                 alsoUpdated: true,
-                updated: true
+                updated: true,
             },
-            meta: { reducerName: "reducerName" }
+            meta: { reducerName: "reducerName" },
         })
     })
 
     it("should create an action to reset object", () => {
         expect(
-            resetObjectAction({ reducerName })
+            resetObjectAction({ reducerName }),
         ).toEqual({
             type: RESET_OBJECT,
-            meta: { reducerName: "reducerName" }
+            meta: { reducerName: "reducerName" },
         })
     })
 
     it("should create an action to set object", () => {
         expect(
-            setObjectAction({ reducerName, object: { id: 0 } })
+            setObjectAction({ reducerName, object: { id: 0 } }),
         ).toEqual({
             type: SET_OBJECT,
             payload: { id: 0 },
-            meta: { reducerName: "reducerName" }
+            meta: { reducerName: "reducerName" },
         })
     })
 })

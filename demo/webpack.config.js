@@ -1,7 +1,7 @@
 module.exports = {
     entry: "./demo.js",
     output: {
-        filename: "bundle.js"
+        filename: "bundle.js",
     },
     module: {
         rules: [
@@ -11,8 +11,8 @@ module.exports = {
                 loader: "babel-loader",
                 options: {
                     presets: [ "env", "react" ],
-                }
-            }
-        ]
-    }
+                },
+            },
+        ],
+    },
 }
