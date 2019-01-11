@@ -9,7 +9,7 @@
         "healthcheck": "npm run lint && npm run test",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
-        "test": "jest",
+        "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
         "build:esm": "BABEL_ENV=esm babel src --out-dir esm --ignore '**/*spec.js'",
         "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir lib --ignore '**/*spec.js'",
         "build:umd": "webpack --mode production --config webpack.config.babel.js"
@@ -38,6 +38,7 @@
         "babel-preset-env": "1.7.0",
         "babel-preset-react": "6.24.1",
         "babel-register": "6.26.0",
+        "coveralls": "3.0.2",
         "jest": "23.6.0",
         "parallel-webpack": "2.3.0",
         "react": "16.7.0",
