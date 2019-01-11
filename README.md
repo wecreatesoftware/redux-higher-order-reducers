@@ -1,4 +1,5 @@
 # @wecreatesoftware/redux-higher-order-reducers
+[![NPM Version](https://img.shields.io/npm/v/@wecreatesoftware/redux-higher-order-reducers.svg?branch=master)](https://www.npmjs.com/package/@wecreatesoftware/redux-higher-order-reducers)
 [![Build Status](https://travis-ci.org/wecreatesoftware/redux-higher-order-reducers.svg?branch=master)](https://travis-ci.org/wecreatesoftware/redux-higher-order-reducers.svg?branch=master) 
 
 https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic
