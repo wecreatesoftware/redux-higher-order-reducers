@@ -1,4 +1,6 @@
 # @wecreatesoftware/redux-higher-order-reducers
+[![Build Status](https://travis-ci.org/wecreatesoftware/redux-higher-order-reducers.svg?branch=master)](https://travis-ci.org/wecreatesoftware/redux-higher-order-reducers.svg?branch=master) 
+
 https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic
 
 FYI: as of 2.0.0 I am trying to get the imports working correctly, if its completely broke, please submit an issue and use v1.4.0 until futher notice.
