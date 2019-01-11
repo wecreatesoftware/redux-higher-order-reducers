@@ -1,5 +1,5 @@
 import { combineReducers } from "redux"
-import { objectReducer } from "../src/wecreate/software"
+import { objectReducer } from "../src/wecreate/software/redux.higher.order.reducers"
 import {
     OBJECT_REDUCER1,
     OBJECT_REDUCER2
