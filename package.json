@@ -9,7 +9,7 @@
         "healthcheck": "npm run lint && npm run test",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
-        "test": "jest --coverage --coverageReporters=text-lcov | coveralls",
+        "test": "jest",
         "build:esm": "BABEL_ENV=esm babel src --out-dir esm --ignore '**/*spec.js'",
         "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir lib --ignore '**/*spec.js'",
         "build:umd": "webpack --mode production --config webpack.config.babel.js"
