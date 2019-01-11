@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/npm/l/@wecreatesoftware/redux-higher-order-reducers.svg)](https://github.com/wecreatesoftware/redux-higher-order-reducers/blob/master/LICENSE)
 [![Coverage Status](https://coveralls.io/repos/github/wecreatesoftware/redux-higher-order-reducers/badge.svg?branch=master)](https://coveralls.io/github/wecreatesoftware/redux-higher-order-reducers?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/npm/@wecreatesoftware/redux-higher-order-reducers/badge.svg)](https://snyk.io/test/npm/@wecreatesoftware/redux-higher-order-reducers)
+[![Downloads](https://img.shields.io/npm/dt/@wecreatesoftware/redux-higher-order-reducers.svg)](https://www.npmjs.com/package/@wecreatesoftware/redux-higher-order-reducers)
+
 https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic
 
 FYI: as of 2.0.0 I am trying to get the imports working correctly, if its completely broke, please submit an issue and use v1.4.0 until futher notice.
