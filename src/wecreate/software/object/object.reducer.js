@@ -10,8 +10,8 @@ export const objectReducer = ({ reducerName = undefined, initialState = {} } = {
     switch (type) {
         case UPDATE_OBJECT:
             if (error) {
-                //https://github.com/redux-utilities/flux-standard-action/issues/56
-                //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
+                // https://github.com/redux-utilities/flux-standard-action/issues/56
+                // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error
                 return {
                     ...state,
                     error: payload.message,
