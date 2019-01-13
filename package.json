@@ -1,17 +1,17 @@
 {
     "name": "@wecreatesoftware/redux-higher-order-reducers",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "description": "Generic higher order reducers.",
-    "main": "lib/wecreate/software/redux.higher.order.reducers.js",
-    "module": "esm/wecreate/software/redux.higher.order.reducers.js",
+    "main": "dist/lib/wecreate/software/redux.higher.order.reducers.js",
+    "module": "dist/esm/wecreate/software/redux.higher.order.reducers.js",
     "scripts": {
         "build": "npm run build:esm && npm run build:commonjs && npm run build:umd",
         "healthcheck": "npm run lint && npm run test",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
         "test": "jest",
-        "build:esm": "BABEL_ENV=esm babel src --out-dir esm --ignore '**/*spec.js'",
-        "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir lib --ignore '**/*spec.js'",
+        "build:esm": "BABEL_ENV=esm babel src --out-dir dist/esm --ignore '**/*spec.js'",
+        "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir dist/lib --ignore '**/*spec.js'",
         "build:umd": "webpack --mode production --config webpack.config.babel.js"
     },
     "repository": {

@@ -24,6 +24,27 @@ describe("list.reducer", () => {
     const index = 0
     const reducerName = "reducerName"
     const item = { id: 1000 }
+    const MY_CUSTOM_ACTION = "MY_CUSTOM_ACTION"
+
+    const extendedReducer = (state, { type, payload }) => {
+        switch (type) {
+            case MY_CUSTOM_ACTION:
+                return state.map((curItem, curIndex) => {
+                    if (curIndex !== payload.index) return curItem
+
+                    return {
+                        ...curItem,
+                        ...payload.item,
+                        extendedReducer: true,
+                    }
+                })
+            default:
+                return state.map(curItem => ({
+                    ...curItem,
+                    extendedReducer: true,
+                }))
+        }
+    }
 
     let state
     let action
@@ -215,6 +236,64 @@ describe("list.reducer", () => {
                 listReducer({ reducerName })([], action),
             ).toEqual(
                 [],
+            )
+        })
+    })
+
+    describe("extended reducer", () => {
+        it("should return updated item", () => {
+            action = {
+                ...action,
+                type: MY_CUSTOM_ACTION,
+            }
+
+            expect(
+                listReducer({ reducerName, extendedReducer })(state, action),
+            ).toEqual(
+                [
+                    {
+                        id: 1000,
+                        extendedReducer: true,
+                    },
+                    { id: 1 },
+                    { id: 2 },
+                    { id: 3 },
+                    { id: 4 },
+                ],
+            )
+        })
+
+        it("should return default state", () => {
+            action = {
+                ...action,
+                type: "UNKNOWN",
+            }
+
+            expect(
+                listReducer({ reducerName, extendedReducer })(state, action),
+            ).toEqual(
+                [
+                    {
+                        id: 0,
+                        extendedReducer: true,
+                    },
+                    {
+                        id: 1,
+                        extendedReducer: true,
+                    },
+                    {
+                        id: 2,
+                        extendedReducer: true,
+                    },
+                    {
+                        id: 3,
+                        extendedReducer: true,
+                    },
+                    {
+                        id: 4,
+                        extendedReducer: true,
+                    },
+                ],
             )
         })
     })

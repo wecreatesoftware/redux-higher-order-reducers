@@ -4,7 +4,9 @@ import {
     UPDATE_OBJECT,
 } from "./object.types"
 
-export const objectReducer = ({ reducerName = undefined, initialState = {} } = {}) => (state = initialState, { type = undefined, payload = {}, meta = {}, error = undefined } = {}) => {
+export const objectReducer = ({ reducerName = undefined, initialState = {}, extendedReducer = undefined } = {}) => (state = initialState, action = {}) => {
+    const { type = undefined, payload = {}, meta = {}, error = undefined } = action
+
     if (meta.reducerName !== reducerName) return state
 
     switch (type) {
@@ -20,13 +22,15 @@ export const objectReducer = ({ reducerName = undefined, initialState = {} } = {
             return {
                 ...state,
                 ...payload,
-                error: undefined,
             }
         case RESET_OBJECT:
             return { ...initialState }
         case SET_OBJECT:
             return { ...payload }
         default:
+            if (extendedReducer) {
+                return extendedReducer(state, action)
+            }
             return state
     }
 }
