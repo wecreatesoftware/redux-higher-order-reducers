@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 
 export class ObjectReducerComponent extends Component {
 
@@ -14,9 +15,9 @@ export class ObjectReducerComponent extends Component {
                 resetObject2,
                 setObject1,
                 setObject2,
-                state,
                 updateObject1,
-                updateObject2
+                updateObject2,
+                updateObjectTimestamp,
             },
             state: {
                 key,
@@ -33,6 +34,7 @@ export class ObjectReducerComponent extends Component {
                 <div>
                     <button onClick={ () => updateObject1({ [ key ]: value }) }>Update Object Reducer 1</button>
                     <button onClick={ () => updateObject2({ [ key ]: value }) }>Update Object Reducer 2</button>
+                    <button onClick={ () => updateObjectTimestamp({ [ key ]: value }) }>Update Object Reducer (Extended)</button>
                     <br/>
                     <button onClick={ resetObject1 }>Reset Object Reducer 1</button>
                     <button onClick={ resetObject2 }>Reset Object Reducer 2</button>
@@ -40,8 +42,17 @@ export class ObjectReducerComponent extends Component {
                     <button onClick={ () => setObject1({ cool: "beans" }) }>Set Object Reducer 1</button>
                     <button onClick={ () => setObject2({ cooler: "beans" }) }>Set Object Reducer 2</button>
                 </div>
-                <pre>{ JSON.stringify(state, undefined, 2) }</pre>
             </div>
         )
     }
+}
+
+ObjectReducerComponent.propTypes = {
+    resetObject1: PropTypes.func.isRequired,
+    resetObject2: PropTypes.func.isRequired,
+    setObject1: PropTypes.func.isRequired,
+    setObject2: PropTypes.func.isRequired,
+    updateObject1: PropTypes.func.isRequired,
+    updateObject2: PropTypes.func.isRequired,
+    updateObjectTimestamp: PropTypes.func.isRequired,
 }

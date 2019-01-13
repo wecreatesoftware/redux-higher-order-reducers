@@ -6,6 +6,8 @@ import {
 import {
     OBJECT_REDUCER1,
     OBJECT_REDUCER2,
+    OBJECT_REDUCER_EXTENDED,
+    UPDATE_OBJECT_TIMESTAMP,
 } from "./object.reducer.types"
 
 export const updateObject1Action = updates => updateObjectAction({
@@ -30,4 +32,10 @@ export const setObject1Action = object => setObjectAction({
 export const setObject2Action = object => setObjectAction({
     reducerName: OBJECT_REDUCER2,
     object,
+})
+
+export const updateObjectTimestampAction = payload => ({
+    type: UPDATE_OBJECT_TIMESTAMP,
+    payload,
+    meta: { reducerName: OBJECT_REDUCER_EXTENDED },
 })

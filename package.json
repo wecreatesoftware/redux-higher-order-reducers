@@ -1,6 +1,6 @@
 {
     "name": "@wecreatesoftware/redux-higher-order-reducers",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "description": "Generic higher order reducers.",
     "main": "dist/lib/wecreate/software/redux.higher.order.reducers.js",
     "module": "dist/esm/wecreate/software/redux.higher.order.reducers.js",
@@ -41,6 +41,7 @@
         "coveralls": "3.0.2",
         "jest": "23.6.0",
         "parallel-webpack": "2.3.0",
+        "prop-types": "15.6.2",
         "react": "16.7.0",
         "react-dom": "16.7.0",
         "react-redux": "6.0.0",
