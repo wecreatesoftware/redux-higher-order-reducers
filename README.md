@@ -29,9 +29,12 @@ import {
 export const reducers = combineReducers({
   [ LIST_A ]: listReducer({ reducerName: LIST_A }),
   [ LIST_B ]: listReducer({ reducerName: LIST_B }),
-  [ LIST_C ]: listReducer({ reducerName: LIST_C, key: "id" }),
+  [ LIST_C ]: listReducer({ 
+    reducerName: LIST_C, 
+    key: "id",
+  }),
   [ OBJECT_A ]: objectReducer({ reducerName: OBJECT_A }),
-  [ OBJECT_B ]: objectReducer({ reducerName: OBJECT_B })
+  [ OBJECT_B ]: objectReducer({ reducerName: OBJECT_B }),
 })
 ```
 
@@ -47,42 +50,41 @@ Now that the store has the reducer, we need to dispatch actions.  Everything is 
 * resetListAction - reset list to initial state (default []).
 * setListAction - completely use new state and override current.
 
-
 ```javascript
-dispatch(insertItemAction({ 
+insertItemAction({ 
     reducerName: LIST_A, 
     item: { id: 1 }, 
-    index: 3
-}))
+    index: 3,
+})
 
-dispatch(removeItemAction({
+removeItemAction({
     reducerName: LIST_A, 
-    index: 3 
-}))
+    index: 3,
+})
 
-dispatch(removeItemByKeyAction({ 
+removeItemByKeyAction({ 
     reducerName: LIST_C, 
-    item: { id: 1 } 
-}))
+    item: { id: 1 },
+})
 
-dispatch(updateItemAction({ 
+updateItemAction({ 
     reducerName: LIST_A, 
     item: { 
         id: 1, 
         newKey: "newValue" 
     }, 
-    index: 3 
-}))
+    index: 3,
+})
 
-dispatch(updateItemByKeyAction({ 
+updateItemByKeyAction({ 
     reducerName: LIST_C, 
     item: {
         id: 1, 
         foo: "bar" 
-    } 
-}))
+    },
+})
 
-dispatch(updateItemsByKeyAction({ 
+updateItemsByKeyAction({ 
     reducerName: LIST_C, 
     items: [ 
         {
@@ -92,16 +94,16 @@ dispatch(updateItemsByKeyAction({
         {
             id: 2, 
             cool: "beans" 
-        } 
+        },
     ] 
-}))
+})
 
-dispatch(resetListAction({ reducerName: LIST_A }))
+resetListAction({ reducerName: LIST_A }))
 
-dispatch(setListAction({ 
+setListAction({ 
     reducerName: LIST_A, 
-    list: []
-}))
+    list: [],
+})
 ```
 
 ## Object Reducer
@@ -110,15 +112,17 @@ dispatch(setListAction({
 * setObjectAction - completely use new state and override current.
     
 ```javascript
-dispatch(updateObjectAction({ 
+updateObjectAction({ 
     reducerName: OBJECT_A, 
-    updates: { loading: true } 
-}))
-dispatch(resetObjectAction({ reducerName: OBJECT_A }))
-dispatch(setObjectAction({ 
+    updates: { loading: true }, 
+})
+
+resetObjectAction({ reducerName: OBJECT_A })
+
+setObjectAction({ 
     reducerName: OBJECT_B, 
-    object: {}
-}))
+    object: {},
+})
 ```
 
 It might be annoying constantly setting reducer name right?  I certainly think so ...
@@ -137,22 +141,22 @@ export const reducers = combineReducers({
 
 export const updateSomeNameAction = updates => updateObjectAction({ 
     reducerName: SOME_NAME,
-    updates 
+    updates,
 })
 
 dispatch(updateSomeNameAction({ 
     loading: false, 
     cool: "beans", 
-    foo: "bar" 
+    foo: "bar",
 }))
 ```
 
-##Extended Reducer
+## Extended Reducer
 Have an edge case that just can't be covered by the basic actions/cases?  The idea for extendedReducer allows you to give your own custom reducer to the higher order reducer with your own action/cases.
 Lets have a look ...
 
 ```javascript
-import {  objectReducer } from "@wecreatesoftware/redux-higher-order-reducers"
+import { objectReducer } from "@wecreatesoftware/redux-higher-order-reducers"
 import { SOME_NAME } from "../some/constant/file"
 
 const extendedReducer = (state, { type, payload }) => {
@@ -171,20 +175,20 @@ const extendedReducer = (state, { type, payload }) => {
 export const reducers = combineReducers({
   [ SOME_NAME ]: objectReducer({ 
     reducerName: SOME_NAME, 
-    extendedReducer 
+    extendedReducer,
   }),
 })
 
 export const myCustomAction = payload => ({ 
     type: "MY_CUSTOM_ACTION", 
     payload,
-    meta: { reducerName: SOME_NAME }
+    meta: { reducerName: SOME_NAME },
 })
 
 dispatch(myCustomAction({ 
     loading: false, 
     cool: "beans", 
-    foo: "bar" 
+    foo: "bar",
 }))
 
 ```
