@@ -17,9 +17,11 @@ import {
     updateItemsByKey,
 } from "./list.util"
 
-export const listReducer = ({ reducerName = undefined, initialState = [], key = undefined } = {}) => (state = initialState, { type = undefined, payload = {}, meta = {}, error = undefined } = {}) => {
+export const listReducer = ({ reducerName = undefined, initialState = [], key = undefined, extendedReducer = undefined } = {}) => (state = initialState, action = {}) => {
+    const { type = undefined, payload = {}, meta = {}, error = undefined } = action
+
     if (meta.reducerName !== reducerName) return state
-    if (error === true) return state
+    if (error === true) return state // not sure how to handle error for a "list" ... ideas?
 
     switch (type) {
         case INSERT_ITEM:
@@ -39,6 +41,9 @@ export const listReducer = ({ reducerName = undefined, initialState = [], key = 
         case SET_LIST:
             return [ ...payload ]
         default:
+            if (extendedReducer) {
+                return extendedReducer(state, action)
+            }
             return state
     }
 }

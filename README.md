@@ -1,4 +1,3 @@
-# @wecreatesoftware/redux-higher-order-reducers
 [![NPM Version](https://img.shields.io/npm/v/@wecreatesoftware/redux-higher-order-reducers.svg?branch=master)](https://www.npmjs.com/package/@wecreatesoftware/redux-higher-order-reducers)
 [![Build Status](https://travis-ci.org/wecreatesoftware/redux-higher-order-reducers.svg?branch=master)](https://travis-ci.org/wecreatesoftware/redux-higher-order-reducers)
 [![License](https://img.shields.io/npm/l/@wecreatesoftware/redux-higher-order-reducers.svg)](https://github.com/wecreatesoftware/redux-higher-order-reducers/blob/master/LICENSE)
@@ -50,14 +49,59 @@ Now that the store has the reducer, we need to dispatch actions.  Everything is 
 
 
 ```javascript
-dispatch(insertItemAction({ reducerName: LIST_A, item: { id: 1 }, index: 3 }))
-dispatch(removeItemAction({ reducerName: LIST_A, index: 3 }))
-dispatch(removeItemByKeyAction({ reducerName: LIST_C, item: { id: 1 } }))
-dispatch(updateItemAction({ reducerName: LIST_A, item: { id: 1, newKey: "newValue" }, index: 3 }))
-dispatch(updateItemByKeyAction({ reducerName: LIST_C, item: { id: 1, foo: "bar" } }))
-dispatch(updateItemsByKeyAction({ reducerName: LIST_C, items: [ { id: 1, foo: "bar" }, { id: 2, cool: "beans" } ] }))
+dispatch(insertItemAction({ 
+    reducerName: LIST_A, 
+    item: { id: 1 }, 
+    index: 3
+}))
+
+dispatch(removeItemAction({
+    reducerName: LIST_A, 
+    index: 3 
+}))
+
+dispatch(removeItemByKeyAction({ 
+    reducerName: LIST_C, 
+    item: { id: 1 } 
+}))
+
+dispatch(updateItemAction({ 
+    reducerName: LIST_A, 
+    item: { 
+        id: 1, 
+        newKey: "newValue" 
+    }, 
+    index: 3 
+}))
+
+dispatch(updateItemByKeyAction({ 
+    reducerName: LIST_C, 
+    item: {
+        id: 1, 
+        foo: "bar" 
+    } 
+}))
+
+dispatch(updateItemsByKeyAction({ 
+    reducerName: LIST_C, 
+    items: [ 
+        {
+            id: 1, 
+            foo: "bar" 
+        }, 
+        {
+            id: 2, 
+            cool: "beans" 
+        } 
+    ] 
+}))
+
 dispatch(resetListAction({ reducerName: LIST_A }))
-dispatch(setListAction({ reducerName: LIST_A, list: []}))
+
+dispatch(setListAction({ 
+    reducerName: LIST_A, 
+    list: []
+}))
 ```
 
 ## Object Reducer
@@ -66,9 +110,15 @@ dispatch(setListAction({ reducerName: LIST_A, list: []}))
 * setObjectAction - completely use new state and override current.
     
 ```javascript
-dispatch(updateObjectAction({ reducerName: OBJECT_A, updates: { loading: true } }))
+dispatch(updateObjectAction({ 
+    reducerName: OBJECT_A, 
+    updates: { loading: true } 
+}))
 dispatch(resetObjectAction({ reducerName: OBJECT_A }))
-dispatch(setObjectAction({ reducerName: OBJECT_B, object: {}}))
+dispatch(setObjectAction({ 
+    reducerName: OBJECT_B, 
+    object: {}
+}))
 ```
 
 It might be annoying constantly setting reducer name right?  I certainly think so ...
@@ -85,13 +135,74 @@ export const reducers = combineReducers({
   [ SOME_NAME ]: objectReducer({ reducerName: SOME_NAME }),
 })
 
-export const updateSomeNameAction = updates => updateObjectAction({ reducerName: SOME_NAME, updates })
+export const updateSomeNameAction = updates => updateObjectAction({ 
+    reducerName: SOME_NAME,
+    updates 
+})
 
-dispatch(updateSomeNameAction({ loading: false, cool: "beans", foo: "bar" }))
+dispatch(updateSomeNameAction({ 
+    loading: false, 
+    cool: "beans", 
+    foo: "bar" 
+}))
 ```
 
-Each reducer, consider it like a micro service, it does one thing and one thing well.
+##Extended Reducer
+Have an edge case that just can't be covered by the basic actions/cases?  The idea for extendedReducer allows you to give your own custom reducer to the higher order reducer with your own action/cases.
+Lets have a look ...
 
+```javascript
+import {  objectReducer } from "@wecreatesoftware/redux-higher-order-reducers"
+import { SOME_NAME } from "../some/constant/file"
+
+const extendedReducer = (state, { type, payload }) => {
+    switch (type) {
+        case "MY_CUSTOM_ACTION":
+            return {
+                ...state,
+                ...payload,
+                extendedReducer: true,
+            }
+        default:
+            return state
+    }
+}
+
+export const reducers = combineReducers({
+  [ SOME_NAME ]: objectReducer({ 
+    reducerName: SOME_NAME, 
+    extendedReducer 
+  }),
+})
+
+export const myCustomAction = payload => ({ 
+    type: "MY_CUSTOM_ACTION", 
+    payload,
+    meta: { reducerName: SOME_NAME }
+})
+
+dispatch(myCustomAction({ 
+    loading: false, 
+    cool: "beans", 
+    foo: "bar" 
+}))
+
+```
+The above dispatch will flow through the higher order reducer, find no case, fall into default case, and then call the extendedReducer, allowing the extended reducer to do any sort of logic to the state.
+
+Here it will return ... 
+```javascript
+state = {
+       loading: false, 
+       cool: "beans", 
+       foo: "bar",
+       extendedReducer: true, 
+}
+```
+
+The above capabilty also helps with middleware checking for a specific type asthe higher order reducer uses the same generic action for updates.
+
+Each reducer, consider it like a micro service, it does one thing and one thing well.
 
 With a reducer handling very specific data, adding a library like [reselect](https://www.npmjs.com/package/reselect) makes it easy to select, combine, filter data.
 Making selectors to get specific pieces of data allows you to select the exact information needed for the given component, vs giving the component some high level object and use a couple keys from it.

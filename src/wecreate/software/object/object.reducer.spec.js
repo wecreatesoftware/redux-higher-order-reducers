@@ -7,6 +7,24 @@ import {
 
 describe("object.reducer", () => {
     const reducerName = "reducerName"
+    const MY_CUSTOM_ACTION = "MY_CUSTOM_ACTION"
+
+    const extendedReducer = (state, { type, payload }) => {
+        switch (type) {
+            case MY_CUSTOM_ACTION:
+                return {
+                    ...state,
+                    ...payload,
+                    extendedReducer: true,
+                }
+            default:
+                return {
+                    ...state,
+                    extendedReducer: true,
+                }
+        }
+    }
+
     let state
 
     beforeEach(() => {
@@ -113,6 +131,39 @@ describe("object.reducer", () => {
             ).toEqual({
                 id: 0,
                 error: "error",
+            })
+        })
+    })
+
+    describe("extended reducer", () => {
+        let action = {
+            type: "MY_CUSTOM_ACTION",
+            payload: { foo: "bar", cool: "beans" },
+            meta: { reducerName },
+        }
+
+        it("should return updated state", () => {
+            expect(
+                objectReducer({ reducerName, extendedReducer })(state, action),
+            ).toEqual({
+                id: 0,
+                foo: "bar",
+                cool: "beans",
+                extendedReducer: true,
+            })
+        })
+
+        it("should return default state", () => {
+            action = {
+                ...action,
+                type: "UNKNOWN",
+            }
+
+            expect(
+                objectReducer({ reducerName, extendedReducer })(state, action),
+            ).toEqual({
+                id: 0,
+                extendedReducer: true,
             })
         })
     })

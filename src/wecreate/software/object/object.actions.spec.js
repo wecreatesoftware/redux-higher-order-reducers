@@ -21,6 +21,7 @@ describe("object.actions", () => {
             meta: { reducerName: "reducerName" },
         })
     })
+
     it("should create an action to update key value pairs", () => {
         expect(
             updateObjectAction({ reducerName, updates: { updated: true, alsoUpdated: true } }),
