@@ -13,7 +13,6 @@ src
 .gitignore
 .npmrc
 .travis.yml
-jest.config.js
-webpack.config.babel.js
 .editorconfig
 demo
+*config*.js
