@@ -1,18 +1,17 @@
 {
     "name": "@wecreatesoftware/redux-higher-order-reducers",
-    "version": "2.1.1",
+    "version": "3.0.0",
     "description": "Generic higher order reducers.",
-    "main": "dist/lib/wecreate/software/redux.higher.order.reducers.js",
-    "module": "dist/esm/wecreate/software/redux.higher.order.reducers.js",
+    "main": "dist/redux.higher.order.reducers.js",
+    "module": "dist/redux.higher.order.reducers.js",
     "scripts": {
-        "build": "npm run build:esm && npm run build:commonjs && npm run build:umd",
+        "clean": "rimraf dist",
+        "build": "npm run healthcheck && npm run clean && npm run rollup",
         "healthcheck": "npm run lint && npm run test",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
-        "test": "jest",
-        "build:esm": "BABEL_ENV=esm babel src --out-dir dist/esm --ignore '**/*spec.js'",
-        "build:commonjs": "BABEL_ENV=commonjs babel src --out-dir dist/lib --ignore '**/*spec.js'",
-        "build:umd": "webpack --mode production --config webpack.config.babel.js"
+        "rollup": "rollup -c rollup.config.js",
+        "test": "jest"
     },
     "repository": {
         "type": "git",
@@ -34,10 +33,12 @@
         "babel-core": "6.26.3",
         "babel-jest": "23.6.0",
         "babel-loader": "7.1.5",
+        "babel-plugin-external-helpers": "6.22.0",
         "babel-plugin-transform-object-rest-spread": "6.26.0",
         "babel-preset-env": "1.7.0",
         "babel-preset-react": "6.24.1",
         "babel-register": "6.26.0",
+        "babelrc-rollup": "3.0.0",
         "coveralls": "3.0.2",
         "jest": "23.6.0",
         "parallel-webpack": "2.3.0",
@@ -46,6 +47,10 @@
         "react-dom": "16.7.0",
         "react-redux": "6.0.0",
         "redux": "4.0.1",
+        "rimraf": "2.6.3",
+        "rollup": "1.1.2",
+        "rollup-plugin-babel": "3.0.7",
+        "rollup-plugin-terser": "4.0.2",
         "webpack": "4.27.1",
         "webpack-cli": "3.1.2"
     }
