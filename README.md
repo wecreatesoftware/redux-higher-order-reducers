@@ -7,11 +7,9 @@
 
 https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic
 
-FYI: as of 2.0.0 I am trying to get the imports working correctly, if its completely broke, please submit an issue and use v1.4.0 until futher notice.
-
 How to use the reusable reducers ...
 
-Currently, there is a listReducer and objectReducer ... here is how to use them.
+Currently, there is a listReducer and objectReducer ...
 
 ```javascript
 import { 
