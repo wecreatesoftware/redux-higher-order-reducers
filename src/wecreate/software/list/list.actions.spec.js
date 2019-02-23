@@ -103,7 +103,7 @@ describe("list.actions", () => {
 
     it("should create an action to set list", () => {
         expect(
-            setListAction({ reducerName, list: [] }),
+            setListAction({ reducerName, payload: [] }),
         ).toEqual({
             type: SET_LIST,
             payload: [],

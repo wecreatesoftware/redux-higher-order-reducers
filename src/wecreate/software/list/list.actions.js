@@ -50,7 +50,7 @@ export const resetListAction = ({ reducerName }) => ({
     meta: { reducerName },
 })
 
-export const setListAction = ({ reducerName, list: payload }) => ({
+export const setListAction = ({ reducerName, payload }) => ({
     type: SET_LIST,
     payload,
     meta: { reducerName },
