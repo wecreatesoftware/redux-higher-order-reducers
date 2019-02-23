@@ -1,8 +1,9 @@
 {
     "name": "@wecreatesoftware/redux-higher-order-reducers",
-    "version": "3.0.1",
+    "version": "4.0.0",
     "description": "Generic higher order reducers.",
     "main": "dist/redux.higher.order.reducers.js",
+    "jsnext:main": "dist/redux.higher.order.reducers.es.js",
     "module": "dist/redux.higher.order.reducers.js",
     "scripts": {
         "clean": "rimraf dist",
@@ -10,6 +11,7 @@
         "healthcheck": "npm run lint && npm run test",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
+        "prepublish": "npm run build",
         "rollup": "rollup -c rollup.config.js",
         "test": "jest"
     },
