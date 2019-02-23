@@ -14,7 +14,7 @@ describe("object.actions", () => {
 
     it("should create an action to update key value pair", () => {
         expect(
-            updateObjectAction({ reducerName, updates: { updated: true } }),
+            updateObjectAction({ reducerName, payload: { updated: true } }),
         ).toEqual({
             type: UPDATE_OBJECT,
             payload: { updated: true },
@@ -24,7 +24,7 @@ describe("object.actions", () => {
 
     it("should create an action to update key value pairs", () => {
         expect(
-            updateObjectAction({ reducerName, updates: { updated: true, alsoUpdated: true } }),
+            updateObjectAction({ reducerName, payload: { updated: true, alsoUpdated: true } }),
         ).toEqual({
             type: UPDATE_OBJECT,
             payload: {
@@ -46,7 +46,7 @@ describe("object.actions", () => {
 
     it("should create an action to set object", () => {
         expect(
-            setObjectAction({ reducerName, object: { id: 0 } }),
+            setObjectAction({ reducerName, payload: { id: 0 } }),
         ).toEqual({
             type: SET_OBJECT,
             payload: { id: 0 },

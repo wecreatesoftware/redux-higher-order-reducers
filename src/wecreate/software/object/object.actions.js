@@ -4,9 +4,9 @@ import {
     UPDATE_OBJECT,
 } from "./object.types"
 
-export const updateObjectAction = ({ reducerName, updates }) => ({
+export const updateObjectAction = ({ reducerName, payload }) => ({
     type: UPDATE_OBJECT,
-    payload: { ...updates },
+    payload,
     meta: { reducerName },
 })
 
@@ -15,7 +15,7 @@ export const resetObjectAction = ({ reducerName }) => ({
     meta: { reducerName },
 })
 
-export const setObjectAction = ({ reducerName, object: payload }) => ({
+export const setObjectAction = ({ reducerName, payload }) => ({
     type: SET_OBJECT,
     payload,
     meta: { reducerName },
