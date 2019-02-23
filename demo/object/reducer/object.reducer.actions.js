@@ -24,14 +24,14 @@ export const resetObject1Action = () => resetObjectAction({ reducerName: OBJECT_
 
 export const resetObject2Action = () => resetObjectAction({ reducerName: OBJECT_REDUCER2 })
 
-export const setObject1Action = object => setObjectAction({
+export const setObject1Action = payload => setObjectAction({
     reducerName: OBJECT_REDUCER1,
-    object,
+    payload,
 })
 
-export const setObject2Action = object => setObjectAction({
+export const setObject2Action = payload => setObjectAction({
     reducerName: OBJECT_REDUCER2,
-    object,
+    payload,
 })
 
 export const updateObjectTimestampAction = payload => ({
