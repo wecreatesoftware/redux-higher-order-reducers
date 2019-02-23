@@ -100,7 +100,7 @@ resetListAction({ reducerName: LIST_A }))
 
 setListAction({ 
     reducerName: LIST_A, 
-    list: [],
+    payload: [],
 })
 ```
 
@@ -112,14 +112,14 @@ setListAction({
 ```javascript
 updateObjectAction({ 
     reducerName: OBJECT_A, 
-    updates: { loading: true }, 
+    payload: { loading: true }, 
 })
 
 resetObjectAction({ reducerName: OBJECT_A })
 
 setObjectAction({ 
     reducerName: OBJECT_B, 
-    object: {},
+    payload: {},
 })
 ```
 
@@ -137,9 +137,9 @@ export const reducers = combineReducers({
   [ SOME_NAME ]: objectReducer({ reducerName: SOME_NAME }),
 })
 
-export const updateSomeNameAction = updates => updateObjectAction({ 
+export const updateSomeNameAction = payload => updateObjectAction({ 
     reducerName: SOME_NAME,
-    updates,
+    payload,
 })
 
 dispatch(updateSomeNameAction({ 

@@ -19,9 +19,9 @@ const mapDispatchToProps = dispatch => (
         resetObject2: () => resetObject2Action(),
         setObject1: object => setObject1Action(object),
         setObject2: object => setObject2Action(object),
-        updateObject1: updates => updateObject1Action(updates),
-        updateObject2: updates => updateObject2Action(updates),
-        updateObjectTimestamp: updates => updateObjectTimestampAction(updates),
+        updateObject1: payload => updateObject1Action(payload),
+        updateObject2: payload => updateObject2Action(payload),
+        updateObjectTimestamp: payload => updateObjectTimestampAction(payload),
     }, dispatch)
 )
 

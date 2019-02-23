@@ -10,14 +10,14 @@ import {
     UPDATE_OBJECT_TIMESTAMP,
 } from "./object.reducer.types"
 
-export const updateObject1Action = updates => updateObjectAction({
+export const updateObject1Action = payload => updateObjectAction({
     reducerName: OBJECT_REDUCER1,
-    updates,
+    payload,
 })
 
-export const updateObject2Action = updates => updateObjectAction({
+export const updateObject2Action = payload => updateObjectAction({
     reducerName: OBJECT_REDUCER2,
-    updates,
+    payload,
 })
 
 export const resetObject1Action = () => resetObjectAction({ reducerName: OBJECT_REDUCER1 })
