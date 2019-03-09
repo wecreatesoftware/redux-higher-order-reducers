@@ -26,3 +26,5 @@ export const updateItemsByKey = ({ state, payload: { items }, key }) => state.ma
 
     return { ...curItem, ...item }
 })
+
+export const updateValueAllItems = ({ state, payload }) => state.map(curItem => ({ ...curItem, ...payload }))

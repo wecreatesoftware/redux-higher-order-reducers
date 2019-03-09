@@ -5,7 +5,8 @@
 [![License](https://img.shields.io/npm/l/@wecreatesoftware/redux-higher-order-reducers.svg)](https://github.com/wecreatesoftware/redux-higher-order-reducers/blob/master/LICENSE)
 [![Coverage Status](https://coveralls.io/repos/github/wecreatesoftware/redux-higher-order-reducers/badge.svg?branch=master)](https://coveralls.io/github/wecreatesoftware/redux-higher-order-reducers?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/npm/@wecreatesoftware/redux-higher-order-reducers/badge.svg)](https://snyk.io/test/npm/@wecreatesoftware/redux-higher-order-reducers)
-[![Downloads](https://img.shields.io/npm/dt/@wecreatesoftware/redux-higher-order-reducers.svg)](https://www.npmjs.com/package/@wecreatesoftware/redux-higher-order-reducers) [![Greenkeeper badge](https://badges.greenkeeper.io/wecreatesoftware/redux-higher-order-reducers.svg)](https://greenkeeper.io/)
+[![Downloads](https://img.shields.io/npm/dt/@wecreatesoftware/redux-higher-order-reducers.svg)](https://www.npmjs.com/package/@wecreatesoftware/redux-higher-order-reducers) 
+[![Greenkeeper badge](https://badges.greenkeeper.io/wecreatesoftware/redux-higher-order-reducers.svg)](https://greenkeeper.io/)
 
 https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic
 
@@ -47,6 +48,7 @@ Now that the store has the reducer, we need to dispatch actions.  Everything is 
 * updateItemAction - update item at given index.
 * updateItemByKeyAction - update item by "key".
 * updateItemsByKeyAction - update items by "key".
+* updateValueAllItemsAction - update key/value pair(s) on all items.
 * resetListAction - reset list to initial state (default []).
 * setListAction - completely use new state and override current.
 
@@ -96,6 +98,15 @@ updateItemsByKeyAction({
             cool: "beans" 
         },
     ] 
+})
+
+updateValueAllItemsAction({ 
+    reducerName: LIST_C, 
+    keyValuePairs: {
+        foo: bar,
+        updated: true,
+        collapsed: true,
+    }
 })
 
 resetListAction({ reducerName: LIST_A }))

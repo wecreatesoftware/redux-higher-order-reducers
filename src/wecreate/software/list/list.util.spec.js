@@ -5,6 +5,7 @@ import {
     updateItem,
     updateItemByKey,
     updateItemsByKey,
+    updateValueAllItems,
 } from "./list.util"
 
 describe("list.util", () => {
@@ -138,6 +139,79 @@ describe("list.util", () => {
                     expected,
                 )
             })
+        })
+    })
+
+    describe("updateValueAllItems", () => {
+        it("should update items with new payload key/value pair", () => {
+            expect(
+                updateValueAllItems({ state, payload: { collapsed: false } }),
+            ).toEqual([
+                {
+                    collapsed: false,
+                    id: 0,
+                },
+                {
+                    collapsed: false,
+                    id: 1,
+                },
+                {
+                    collapsed: false,
+                    id: 2,
+                },
+                {
+                    collapsed: false,
+                    id: 3,
+                },
+                {
+                    collapsed: false,
+                    id: 4,
+                },
+            ])
+        })
+
+        it("should update items with new payload key/value pairs", () => {
+            expect(
+                updateValueAllItems({
+                    state,
+                    payload: {
+                        collapsed: false,
+                        foo: "bar",
+                        updated: true,
+                    },
+                }),
+            ).toEqual([
+                {
+                    collapsed: false,
+                    foo: "bar",
+                    id: 0,
+                    updated: true,
+                },
+                {
+                    collapsed: false,
+                    foo: "bar",
+                    id: 1,
+                    updated: true,
+                },
+                {
+                    collapsed: false,
+                    foo: "bar",
+                    id: 2,
+                    updated: true,
+                },
+                {
+                    collapsed: false,
+                    foo: "bar",
+                    id: 3,
+                    updated: true,
+                },
+                {
+                    collapsed: false,
+                    foo: "bar",
+                    id: 4,
+                    updated: true,
+                },
+            ])
         })
     })
 })

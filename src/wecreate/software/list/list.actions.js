@@ -7,6 +7,7 @@ import {
     UPDATE_ITEM,
     UPDATE_ITEM_BY_KEY,
     UPDATE_ITEMS_BY_KEY,
+    UPDATE_VALUE_ALL_ITEMS,
 } from "./list.types"
 
 export const insertItemAction = ({ item, index, reducerName }) => ({
@@ -42,6 +43,12 @@ export const updateItemsByKeyAction = ({ items, reducerName }) => ({
 export const updateItemByKeyAction = ({ item, reducerName }) => ({
     type: UPDATE_ITEM_BY_KEY,
     payload: { item },
+    meta: { reducerName },
+})
+
+export const updateValueAllItemsAction = ({ keyValuePairs, reducerName }) => ({
+    type: UPDATE_VALUE_ALL_ITEMS,
+    payload: keyValuePairs,
     meta: { reducerName },
 })
 
