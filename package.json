@@ -42,7 +42,7 @@
         "babel-register": "6.26.0",
         "babelrc-rollup": "3.0.0",
         "coveralls": "3.0.3",
-        "jest": "24.1.0",
+        "jest": "23.6.0",
         "parallel-webpack": "2.3.0",
         "prop-types": "15.7.2",
         "react": "16.8.3",
