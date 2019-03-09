@@ -42,7 +42,7 @@
         "babel-register": "6.26.0",
         "babelrc-rollup": "3.0.0",
         "coveralls": "3.0.3",
-        "jest": "24.3.1",
+        "jest": "23.6.0",
         "parallel-webpack": "2.3.0",
         "prop-types": "15.7.2",
         "react": "16.8.4",
@@ -51,9 +51,15 @@
         "redux": "4.0.1",
         "rimraf": "2.6.3",
         "rollup": "1.6.0",
-        "rollup-plugin-babel": "4.3.2",
+        "rollup-plugin-babel": "3.0.7",
         "rollup-plugin-terser": "4.0.4",
         "webpack": "4.29.6",
         "webpack-cli": "3.2.3"
+    },
+    "greenkeeper": {
+        "ignore": [
+            "rollup-plugin-babel",
+            "jest"
+        ]
     }
 }
