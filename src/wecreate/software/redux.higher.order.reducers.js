@@ -13,6 +13,8 @@ export {
     removeItemByKeyAction,
     updateItemAction,
     updateItemByKeyAction,
+    updateValueAllItemsAction,
+    updateItemsByKeyAction,
     resetListAction,
     setListAction,
 } from "./list/list.actions"
@@ -32,4 +34,5 @@ export {
     SET_LIST,
     UPDATE_ITEM_BY_KEY,
     UPDATE_ITEMS_BY_KEY,
+    UPDATE_VALUE_ALL_ITEMS,
 } from "./list/list.types"

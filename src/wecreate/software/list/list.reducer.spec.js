@@ -6,6 +6,7 @@ import {
     updateItem,
     updateItemByKey,
     updateItemsByKey,
+    updateValueAllItems,
 } from "./list.util"
 import {
     INSERT_ITEM,
@@ -16,6 +17,7 @@ import {
     UPDATE_ITEM,
     UPDATE_ITEM_BY_KEY,
     UPDATE_ITEMS_BY_KEY,
+    UPDATE_VALUE_ALL_ITEMS,
 } from "./list.types"
 
 jest.mock("./list.util")
@@ -172,6 +174,22 @@ describe("list.reducer", () => {
 
             expect(
                 updateItemsByKey,
+            ).toHaveBeenCalledTimes(
+                1,
+            )
+        })
+    })
+
+    describe("UPDATE_VALUE_ALL_ITEMS", () => {
+        it("should call updateValueAllItems", () => {
+            action = {
+                ...action,
+                type: UPDATE_VALUE_ALL_ITEMS,
+            }
+            listReducer({ reducerName })(state, action)
+
+            expect(
+                updateValueAllItems,
             ).toHaveBeenCalledTimes(
                 1,
             )

@@ -7,6 +7,7 @@ import {
     updateItemAction,
     updateItemByKeyAction,
     updateItemsByKeyAction,
+    updateValueAllItemsAction,
 } from "./list.actions"
 import {
     INSERT_ITEM,
@@ -17,6 +18,7 @@ import {
     UPDATE_ITEM,
     UPDATE_ITEM_BY_KEY,
     UPDATE_ITEMS_BY_KEY,
+    UPDATE_VALUE_ALL_ITEMS,
 } from "./list.types"
 
 describe("list.actions", () => {
@@ -26,7 +28,11 @@ describe("list.actions", () => {
 
     it("should create an action to insert item", () => {
         expect(
-            insertItemAction({ item, index, reducerName }),
+            insertItemAction({
+                item,
+                index,
+                reducerName,
+            }),
         ).toEqual({
             type: INSERT_ITEM,
             payload: {
@@ -39,7 +45,10 @@ describe("list.actions", () => {
 
     it("should create an action to remove item", () => {
         expect(
-            removeItemAction({ index, reducerName }),
+            removeItemAction({
+                index,
+                reducerName,
+            }),
         ).toEqual({
             type: REMOVE_ITEM,
             payload: { index: 0 },
@@ -49,7 +58,10 @@ describe("list.actions", () => {
 
     it("should create an action to remove item by key", () => {
         expect(
-            removeItemByKeyAction({ item, reducerName }),
+            removeItemByKeyAction({
+                item,
+                reducerName,
+            }),
         ).toEqual({
             type: REMOVE_ITEM_BY_KEY,
             payload: { item },
@@ -59,7 +71,11 @@ describe("list.actions", () => {
 
     it("should create an action to update item by index", () => {
         expect(
-            updateItemAction({ item, index, reducerName }),
+            updateItemAction({
+                item,
+                index,
+                reducerName,
+            }),
         ).toEqual({
             type: UPDATE_ITEM,
             payload: {
@@ -72,7 +88,10 @@ describe("list.actions", () => {
 
     it("should create an action to update item", () => {
         expect(
-            updateItemByKeyAction({ item, reducerName }),
+            updateItemByKeyAction({
+                item,
+                reducerName,
+            }),
         ).toEqual({
             type: UPDATE_ITEM_BY_KEY,
             payload: { item },
@@ -84,10 +103,28 @@ describe("list.actions", () => {
         const items = [ item, item ]
 
         expect(
-            updateItemsByKeyAction({ items, reducerName }),
+            updateItemsByKeyAction({
+                items,
+                reducerName,
+            }),
         ).toEqual({
             type: UPDATE_ITEMS_BY_KEY,
             payload: { items },
+            meta: { reducerName },
+        })
+    })
+
+    it("should create an action to update value (key/value pairs) for all items", () => {
+        const keyValuePairs = { updated: true }
+
+        expect(
+            updateValueAllItemsAction({
+                keyValuePairs,
+                reducerName,
+            }),
+        ).toEqual({
+            type: UPDATE_VALUE_ALL_ITEMS,
+            payload: keyValuePairs,
             meta: { reducerName },
         })
     })
@@ -103,7 +140,10 @@ describe("list.actions", () => {
 
     it("should create an action to set list", () => {
         expect(
-            setListAction({ reducerName, payload: [] }),
+            setListAction({
+                reducerName,
+                payload: [],
+            }),
         ).toEqual({
             type: SET_LIST,
             payload: [],

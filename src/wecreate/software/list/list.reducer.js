@@ -7,6 +7,7 @@ import {
     UPDATE_ITEM,
     UPDATE_ITEM_BY_KEY,
     UPDATE_ITEMS_BY_KEY,
+    UPDATE_VALUE_ALL_ITEMS,
 } from "./list.types"
 import {
     insertItem,
@@ -15,6 +16,7 @@ import {
     updateItem,
     updateItemByKey,
     updateItemsByKey,
+    updateValueAllItems,
 } from "./list.util"
 
 export const listReducer = ({ reducerName = undefined, initialState = [], key = undefined, extendedReducer = undefined } = {}) => (state = initialState, action = {}) => {
@@ -36,6 +38,8 @@ export const listReducer = ({ reducerName = undefined, initialState = [], key = 
             return updateItemByKey({ state, payload, key })
         case UPDATE_ITEMS_BY_KEY:
             return updateItemsByKey({ state, payload, key })
+        case UPDATE_VALUE_ALL_ITEMS:
+            return updateValueAllItems({ state, payload })
         case RESET_LIST:
             return [ ...initialState ]
         case SET_LIST:
