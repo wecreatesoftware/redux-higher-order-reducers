@@ -142,7 +142,7 @@ describe("list.actions", () => {
         expect(
             setListAction({
                 reducerName,
-                payload: []
+                payload: [],
             }),
         ).toEqual({
             type: SET_LIST,
