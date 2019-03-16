@@ -53,6 +53,6 @@
         "rollup": "1.6.0",
         "rollup-plugin-terser": "4.0.4",
         "webpack": "4.29.6",
-        "webpack-cli": "3.2.3"
+        "webpack-cli": "3.3.0"
     }
 }
