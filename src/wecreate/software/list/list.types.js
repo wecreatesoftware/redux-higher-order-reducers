@@ -1,3 +1,4 @@
+export const ADD_ITEM = "@@wecreatesoftware/redux-higher-order-reducers/add-item"
 export const INSERT_ITEM = "@@wecreatesoftware/redux-higher-order-reducers/insert-item"
 export const REMOVE_ITEM = "@@wecreatesoftware/redux-higher-order-reducers/remove-item"
 export const REMOVE_ITEM_BY_KEY = "@@wecreatesoftware/redux-higher-order-reducers/remove-item-by-key"

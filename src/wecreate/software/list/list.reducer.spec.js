@@ -1,5 +1,6 @@
 import { listReducer } from "./list.reducer"
 import {
+    addItem,
     insertItem,
     removeItem,
     removeItemByKey,
@@ -9,6 +10,7 @@ import {
     updateValueAllItems,
 } from "./list.util"
 import {
+    ADD_ITEM,
     INSERT_ITEM,
     REMOVE_ITEM,
     REMOVE_ITEM_BY_KEY,
@@ -312,6 +314,22 @@ describe("list.reducer", () => {
                         extendedReducer: true,
                     },
                 ],
+            )
+        })
+    })
+
+    describe("ADD_ITEM", () => {
+        it("should call addItem", () => {
+            action = {
+                ...action,
+                type: ADD_ITEM,
+            }
+            listReducer({ reducerName })(state, action)
+
+            expect(
+                addItem,
+            ).toHaveBeenCalledTimes(
+                1,
             )
         })
     })
