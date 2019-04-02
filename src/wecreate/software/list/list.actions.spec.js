@@ -1,4 +1,5 @@
 import {
+    addItemAction,
     insertItemAction,
     removeItemAction,
     removeItemByKeyAction,
@@ -10,6 +11,7 @@ import {
     updateValueAllItemsAction,
 } from "./list.actions"
 import {
+    ADD_ITEM,
     INSERT_ITEM,
     REMOVE_ITEM,
     REMOVE_ITEM_BY_KEY,
@@ -147,6 +149,19 @@ describe("list.actions", () => {
         ).toEqual({
             type: SET_LIST,
             payload: [],
+            meta: { reducerName },
+        })
+    })
+
+    it("should create an action to add item to list", () => {
+        expect(
+            addItemAction({
+                reducerName,
+                item,
+            }),
+        ).toEqual({
+            type: ADD_ITEM,
+            payload: item,
             meta: { reducerName },
         })
     })

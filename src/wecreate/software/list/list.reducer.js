@@ -1,4 +1,5 @@
 import {
+    ADD_ITEM,
     INSERT_ITEM,
     REMOVE_ITEM,
     REMOVE_ITEM_BY_KEY,
@@ -10,6 +11,7 @@ import {
     UPDATE_VALUE_ALL_ITEMS,
 } from "./list.types"
 import {
+    addItem,
     insertItem,
     removeItem,
     removeItemByKey,
@@ -26,6 +28,8 @@ export const listReducer = ({ reducerName = undefined, initialState = [], key = 
     if (error === true) return state // not sure how to handle error for a "list" ... ideas?
 
     switch (type) {
+        case ADD_ITEM:
+            return addItem({ state, payload })
         case INSERT_ITEM:
             return insertItem({ state, payload })
         case REMOVE_ITEM:
