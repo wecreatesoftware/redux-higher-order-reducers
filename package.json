@@ -5,6 +5,7 @@
     "main": "dist/redux.higher.order.reducers.js",
     "jsnext:main": "dist/redux.higher.order.reducers.es.js",
     "module": "dist/redux.higher.order.reducers.js",
+    "sideEffects": false,
     "scripts": {
         "clean": "rimraf dist",
         "build": "npm run healthcheck && npm run clean && npm run rollup",
