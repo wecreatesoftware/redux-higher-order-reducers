@@ -42,6 +42,7 @@ export const reducers = combineReducers({
 Now that the store has the reducer, we need to dispatch actions.  Everything is the same as usual but now we need to tell the action which "reducer" to update.
 
 ## List Reducer
+* addItemAction - add item to list (end).
 * insertItemAction - insert item into list at given index.
 * removeItemAction - remove item from list at given index.
 * removeItemByKeyAction - remove item from list by "key".
@@ -53,6 +54,11 @@ Now that the store has the reducer, we need to dispatch actions.  Everything is 
 * setListAction - completely use new state and override current.
 
 ```javascript
+addItemAction({ 
+    reducerName: LIST_A, 
+    item: { id: 1 },
+})
+
 insertItemAction({ 
     reducerName: LIST_A, 
     item: { id: 1 }, 
@@ -176,7 +182,7 @@ const extendedReducer = (state, { type, payload }) => {
             return {
                 ...state,
                 ...payload,
-                extendedReducer: true,
+                lastUpdated: new Date().getTime(),
             }
         default:
             return state
@@ -211,7 +217,7 @@ state = {
        loading: false, 
        cool: "beans", 
        foo: "bar",
-       extendedReducer: true, 
+       lastUpdated: 1554174417035 //timestamp of when it was updated, 
 }
 ```
 
