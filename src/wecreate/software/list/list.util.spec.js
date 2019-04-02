@@ -1,4 +1,5 @@
 import {
+    addItem,
     insertItem,
     removeItem,
     removeItemByKey,
@@ -212,6 +213,23 @@ describe("list.util", () => {
                     updated: true,
                 },
             ])
+        })
+    })
+
+    describe("addItem", () => {
+        [
+            { desc: "at the end", payload: { item }, expected: [ 0, 1, 2, 3, 4, 1000 ] },
+            { desc: "at the end again", payload: { item }, expected: [ 0, 1, 2, 3, 4, 1000 ] },
+            { desc: "at the end still", payload: { item }, expected: [ 0, 1, 2, 3, 4, 1000 ] },
+            { desc: "at the end always", payload: { item }, expected: [ 0, 1, 2, 3, 4, 1000 ] },
+        ].forEach(({ desc, expected, payload }) => {
+            it(`should insert item: ${desc}`, () => {
+                expect(
+                    addItem({ state, payload }).map(({ id }) => id),
+                ).toEqual(
+                    expected,
+                )
+            })
         })
     })
 })
