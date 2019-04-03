@@ -217,7 +217,7 @@ state = {
        loading: false, 
        cool: "beans", 
        foo: "bar",
-       lastUpdated: 1554174417035 //timestamp of when it was updated, 
+       lastUpdated: 1554174417035, //timestamp of when it was updated 
 }
 ```
 
