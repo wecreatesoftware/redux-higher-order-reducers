@@ -8,6 +8,7 @@ export {
 } from "./object/object.actions"
 
 export {
+    addItemAction,
     insertItemAction,
     removeItemAction,
     removeItemByKeyAction,
@@ -26,6 +27,7 @@ export {
 } from "./object/object.types"
 
 export {
+    ADD_ITEM,
     UPDATE_ITEM,
     REMOVE_ITEM_BY_KEY,
     RESET_LIST,

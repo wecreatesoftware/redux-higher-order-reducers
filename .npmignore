@@ -7,7 +7,6 @@ yarn.lock
 node_modules
 *.log
 .DS_Store
-src
 .babelrc
 .eslintrc
 .gitignore
@@ -16,3 +15,4 @@ src
 .editorconfig
 demo
 *config*.js
+greenkeeper.json
