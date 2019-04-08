@@ -43,6 +43,7 @@ Now that the store has the reducer, we need to dispatch actions.  Everything is 
 
 ## List Reducer
 * addItemAction - add item to list (end).
+* addItemsAction - add items to list (end).
 * insertItemAction - insert item into list at given index.
 * removeItemAction - remove item from list at given index.
 * removeItemByKeyAction - remove item from list by "key".
@@ -57,6 +58,11 @@ Now that the store has the reducer, we need to dispatch actions.  Everything is 
 addItemAction({ 
     reducerName: LIST_A, 
     item: { id: 1 },
+})
+
+addItemsAction({ 
+    reducerName: LIST_A, 
+    items: [ { id: 1 } ],
 })
 
 insertItemAction({ 
