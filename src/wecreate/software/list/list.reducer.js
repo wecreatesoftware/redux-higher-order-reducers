@@ -1,5 +1,6 @@
 import {
     ADD_ITEM,
+    ADD_ITEMS,
     INSERT_ITEM,
     REMOVE_ITEM,
     REMOVE_ITEM_BY_KEY,
@@ -12,6 +13,7 @@ import {
 } from "./list.types"
 import {
     addItem,
+    addItems,
     insertItem,
     removeItem,
     removeItemByKey,
@@ -30,6 +32,8 @@ export const listReducer = ({ reducerName = undefined, initialState = [], key = 
     switch (type) {
         case ADD_ITEM:
             return addItem({ state, payload })
+        case ADD_ITEMS:
+            return addItems({ state, payload })
         case INSERT_ITEM:
             return insertItem({ state, payload })
         case REMOVE_ITEM:

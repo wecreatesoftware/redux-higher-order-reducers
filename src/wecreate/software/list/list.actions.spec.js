@@ -1,5 +1,6 @@
 import {
     addItemAction,
+    addItemsAction,
     insertItemAction,
     removeItemAction,
     removeItemByKeyAction,
@@ -153,7 +154,7 @@ describe("list.actions", () => {
         })
     })
 
-    it("should create an action to add item to list", () => {
+    it("should create an action to add item to list (end)", () => {
         expect(
             addItemAction({
                 reducerName,
@@ -162,6 +163,19 @@ describe("list.actions", () => {
         ).toEqual({
             type: ADD_ITEM,
             payload: item,
+            meta: { reducerName },
+        })
+    })
+
+    it("should create an action to add items to list (end)", () => {
+        expect(
+            addItemsAction({
+                reducerName,
+                items: [ item ],
+            }),
+        ).toEqual({
+            type: ADD_ITEM,
+            payload: [ item ],
             meta: { reducerName },
         })
     })

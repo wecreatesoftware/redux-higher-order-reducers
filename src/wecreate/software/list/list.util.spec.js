@@ -1,5 +1,6 @@
 import {
     addItem,
+    addItems,
     insertItem,
     removeItem,
     removeItemByKey,
@@ -14,6 +15,7 @@ describe("list.util", () => {
 
     const key = "id"
     const item = { id: 1000 }
+    const item2 = { id: 2000 }
 
     beforeEach(() => {
         state = [
@@ -218,14 +220,31 @@ describe("list.util", () => {
 
     describe("addItem", () => {
         [
-            { desc: "at the end", payload: { item }, expected: [ 0, 1, 2, 3, 4, 1000 ] },
-            { desc: "at the end again", payload: { item }, expected: [ 0, 1, 2, 3, 4, 1000 ] },
-            { desc: "at the end still", payload: { item }, expected: [ 0, 1, 2, 3, 4, 1000 ] },
-            { desc: "at the end always", payload: { item }, expected: [ 0, 1, 2, 3, 4, 1000 ] },
+            { desc: "at the end", payload: item, expected: [ 0, 1, 2, 3, 4, 1000 ] },
+            { desc: "at the end again", payload: item, expected: [ 0, 1, 2, 3, 4, 1000 ] },
+            { desc: "at the end still", payload: item, expected: [ 0, 1, 2, 3, 4, 1000 ] },
+            { desc: "at the end always", payload: item, expected: [ 0, 1, 2, 3, 4, 1000 ] },
         ].forEach(({ desc, expected, payload }) => {
-            it(`should insert item: ${desc}`, () => {
+            it(`should add item: ${desc}`, () => {
                 expect(
                     addItem({ state, payload }).map(({ id }) => id),
+                ).toEqual(
+                    expected,
+                )
+            })
+        })
+    })
+
+    describe("addItems", () => {
+        [
+            { desc: "at the end", payload: [ item, item2 ], expected: [ 0, 1, 2, 3, 4, 1000, 2000 ] },
+            { desc: "at the end again", payload: [ item, item2 ], expected: [ 0, 1, 2, 3, 4, 1000, 2000 ] },
+            { desc: "at the end still", payload: [ item, item2 ], expected: [ 0, 1, 2, 3, 4, 1000, 2000 ] },
+            { desc: "at the end always", payload: [ item, item2 ], expected: [ 0, 1, 2, 3, 4, 1000, 2000 ] },
+        ].forEach(({ desc, expected, payload }) => {
+            it(`should add items: ${desc}`, () => {
+                expect(
+                    addItems({ state, payload }).map(({ id }) => id),
                 ).toEqual(
                     expected,
                 )
