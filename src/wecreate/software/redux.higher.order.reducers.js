@@ -9,6 +9,7 @@ export {
 
 export {
     addItemAction,
+    addItemsAction,
     insertItemAction,
     removeItemAction,
     removeItemByKeyAction,
@@ -28,6 +29,7 @@ export {
 
 export {
     ADD_ITEM,
+    ADD_ITEMS,
     UPDATE_ITEM,
     REMOVE_ITEM_BY_KEY,
     RESET_LIST,

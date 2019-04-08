@@ -1,4 +1,5 @@
-export const addItem = ({ state, payload: { item } }) => [ ...state, item ]
+export const addItem = ({ state, payload }) => [ ...state, payload ]
+export const addItems = ({ state, payload }) => [ ...state, ...payload ]
 export const insertItem = ({ state, payload: { index, item } }) => [ ...state.slice(0, index), item, ...state.slice(index) ]
 
 export const removeItem = ({ state, payload: { index } }) => [ ...state.slice(0, index), ...state.slice(index + 1) ]

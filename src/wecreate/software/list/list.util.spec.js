@@ -1,5 +1,6 @@
 import {
     addItem,
+    addItems,
     insertItem,
     removeItem,
     removeItemByKey,
@@ -14,6 +15,7 @@ describe("list.util", () => {
 
     const key = "id"
     const item = { id: 1000 }
+    const item2 = { id: 2000 }
 
     beforeEach(() => {
         state = [
@@ -36,7 +38,7 @@ describe("list.util", () => {
             { desc: "at the end, index > length", payload: { item, index: 99 }, expected: [ 0, 1, 2, 3, 4, 1000 ] },
             { desc: "at the beginning, index < 0 ", payload: { item, index: -99 }, expected: [ 1000, 0, 1, 2, 3, 4 ] },
         ].forEach(({ desc, expected, payload }) => {
-            it(`should insert item: ${desc}`, () => {
+            it(`should insert item: ${ desc }`, () => {
                 expect(
                     insertItem({ state, payload }).map(({ id }) => id),
                 ).toEqual(
@@ -55,7 +57,7 @@ describe("list.util", () => {
             { desc: "at index 4", payload: { index: 4 }, expected: [ 0, 1, 2, 3 ] },
             { desc: "none, index out of bounds", payload: { index: 5 }, expected: [ 0, 1, 2, 3, 4 ] },
         ].forEach(({ desc, expected, payload }) => {
-            it(`should remove item: ${desc}`, () => {
+            it(`should remove item: ${ desc }`, () => {
                 expect(
                     removeItem({ state, payload }).map(({ id }) => id),
                 ).toEqual(
@@ -74,7 +76,7 @@ describe("list.util", () => {
             { desc: "key id value 4", payload: { item: { id: 4 } }, expected: [ 0, 1, 2, 3 ] },
             { desc: "none, id value not found", payload: { item: { id: 5 } }, expected: [ 0, 1, 2, 3, 4 ] },
         ].forEach(({ desc, expected, payload }) => {
-            it(`should remove item: ${desc}`, () => {
+            it(`should remove item: ${ desc }`, () => {
                 expect(
                     removeItemByKey({ state, payload, key }).map(({ id }) => id),
                 ).toEqual(
@@ -93,7 +95,7 @@ describe("list.util", () => {
             { desc: "at index 4", payload: { item: { id: 4, updated: true }, index: 4 }, expected: [ undefined, undefined, undefined, undefined, true ] },
             { desc: "none, index out of bounds", payload: { item: { id: 5, updated: true }, index: 5 }, expected: [ undefined, undefined, undefined, undefined, undefined ] },
         ].forEach(({ desc, expected, payload }) => {
-            it(`should update item: ${desc}`, () => {
+            it(`should update item: ${ desc }`, () => {
                 expect(
                     updateItem({ state, payload }).map(({ updated }) => updated),
                 ).toEqual(
@@ -112,7 +114,7 @@ describe("list.util", () => {
             { desc: "key id value 4", payload: { item: { id: 4, updated: true } }, expected: [ undefined, undefined, undefined, undefined, true ] },
             { desc: "none, id value not found", payload: { item: { id: 5, updated: true } }, expected: [ undefined, undefined, undefined, undefined, undefined ] },
         ].forEach(({ desc, expected, payload }) => {
-            it(`should update item: ${desc}`, () => {
+            it(`should update item: ${ desc }`, () => {
                 expect(
                     updateItemByKey({ state, payload, key }).map(({ updated }) => updated),
                 ).toEqual(
@@ -133,7 +135,7 @@ describe("list.util", () => {
             { desc: "key id value 3, 6 not found", payload: { items: [ { id: 3, updated: true }, { id: 6, updated: true } ] }, expected: [ undefined, undefined, undefined, true, undefined ] },
             { desc: "none, id values not found", payload: { items: [ { id: 5, updated: true }, { id: 6, updated: true } ] }, expected: [ undefined, undefined, undefined, undefined, undefined ] },
         ].forEach(({ desc, expected, payload }) => {
-            it(`should update items: ${desc}`, () => {
+            it(`should update items: ${ desc }`, () => {
                 expect(
                     updateItemsByKey({ state, payload, key }).map(({ updated }) => updated),
                 ).toEqual(
@@ -218,14 +220,31 @@ describe("list.util", () => {
 
     describe("addItem", () => {
         [
-            { desc: "at the end", payload: { item }, expected: [ 0, 1, 2, 3, 4, 1000 ] },
-            { desc: "at the end again", payload: { item }, expected: [ 0, 1, 2, 3, 4, 1000 ] },
-            { desc: "at the end still", payload: { item }, expected: [ 0, 1, 2, 3, 4, 1000 ] },
-            { desc: "at the end always", payload: { item }, expected: [ 0, 1, 2, 3, 4, 1000 ] },
+            { desc: "at the end", payload: item, expected: [ 0, 1, 2, 3, 4, 1000 ] },
+            { desc: "at the end again", payload: item, expected: [ 0, 1, 2, 3, 4, 1000 ] },
+            { desc: "at the end still", payload: item, expected: [ 0, 1, 2, 3, 4, 1000 ] },
+            { desc: "at the end always", payload: item, expected: [ 0, 1, 2, 3, 4, 1000 ] },
         ].forEach(({ desc, expected, payload }) => {
-            it(`should insert item: ${desc}`, () => {
+            it(`should add item: ${ desc }`, () => {
                 expect(
                     addItem({ state, payload }).map(({ id }) => id),
+                ).toEqual(
+                    expected,
+                )
+            })
+        })
+    })
+
+    describe("addItems", () => {
+        [
+            { desc: "at the end", payload: [ item, item2 ], expected: [ 0, 1, 2, 3, 4, 1000, 2000 ] },
+            { desc: "at the end again", payload: [ item, item2 ], expected: [ 0, 1, 2, 3, 4, 1000, 2000 ] },
+            { desc: "at the end still", payload: [ item, item2 ], expected: [ 0, 1, 2, 3, 4, 1000, 2000 ] },
+            { desc: "at the end always", payload: [ item, item2 ], expected: [ 0, 1, 2, 3, 4, 1000, 2000 ] },
+        ].forEach(({ desc, expected, payload }) => {
+            it(`should add items: ${ desc }`, () => {
+                expect(
+                    addItems({ state, payload }).map(({ id }) => id),
                 ).toEqual(
                     expected,
                 )

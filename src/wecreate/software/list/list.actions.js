@@ -69,3 +69,9 @@ export const addItemAction = ({ item, reducerName }) => ({
     payload: item,
     meta: { reducerName },
 })
+
+export const addItemsAction = ({ items, reducerName }) => ({
+    type: ADD_ITEM,
+    payload: items,
+    meta: { reducerName },
+})
