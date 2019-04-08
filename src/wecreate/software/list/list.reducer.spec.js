@@ -78,7 +78,7 @@ describe("list.reducer", () => {
             { desc: "options with only reducer name", options: { reducerName }, expected: [] },
             { desc: "options with reducer name and initialState", options: { reducerName, initialState: null }, expected: null },
         ].forEach(({ desc, expected, options }) => {
-            it(`should return initialState: ${ desc }`, () => {
+            it(`should return initialState: ${desc}`, () => {
                 expect(
                     listReducer(options)(),
                 ).toEqual(
