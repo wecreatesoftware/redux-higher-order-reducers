@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "demo": "webpack -p && webpack-dev-server --open"
+        "start": "webpack -p && webpack-dev-server --open"
     }
 }
 
