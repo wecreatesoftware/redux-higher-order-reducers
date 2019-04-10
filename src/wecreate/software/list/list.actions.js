@@ -1,5 +1,6 @@
 import {
     ADD_ITEM,
+    ADD_ITEMS,
     INSERT_ITEM,
     REMOVE_ITEM,
     REMOVE_ITEM_BY_KEY,
@@ -71,7 +72,7 @@ export const addItemAction = ({ item, reducerName }) => ({
 })
 
 export const addItemsAction = ({ items, reducerName }) => ({
-    type: ADD_ITEM,
+    type: ADD_ITEMS,
     payload: items,
     meta: { reducerName },
 })

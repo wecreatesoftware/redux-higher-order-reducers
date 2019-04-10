@@ -13,6 +13,7 @@ import {
 } from "./list.actions"
 import {
     ADD_ITEM,
+    ADD_ITEMS,
     INSERT_ITEM,
     REMOVE_ITEM,
     REMOVE_ITEM_BY_KEY,
@@ -174,7 +175,7 @@ describe("list.actions", () => {
                 items: [ item ],
             }),
         ).toEqual({
-            type: ADD_ITEM,
+            type: ADD_ITEMS,
             payload: [ item ],
             meta: { reducerName },
         })
