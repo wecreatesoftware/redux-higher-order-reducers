@@ -9,7 +9,6 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/wecreatesoftware/redux-higher-order-reducers.svg)](https://greenkeeper.io/)
 
 https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic
-
 How to use the reusable reducers ...
 
 Currently, there is stringReducer, listReducer and objectReducer ...
