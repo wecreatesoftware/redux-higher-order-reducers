@@ -8,8 +8,8 @@
     "esnext": "src/wecreate/software/redux.higher.order.reducers.js",
     "sideEffects": false,
     "scripts": {
-        "clean": "rimraf dist",
-        "build": "npm run healthcheck && npm run clean && npm run rollup",
+        "clean": "rimraf dist docs",
+        "build": "npm run esdoc && npm run healthcheck && npm run clean && npm run rollup",
         "esdoc": "esdoc && open ./docs/index.html",
         "healthcheck": "npm run lint && npm run test",
         "lint": "eslint src",

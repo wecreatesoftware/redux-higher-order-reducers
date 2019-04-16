@@ -12,30 +12,35 @@ https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic
 
 How to use the reusable reducers ...
 
-Currently, there is a listReducer and objectReducer ...
+Currently, there is stringReducer, listReducer and objectReducer ...
 
 ```javascript
 import { 
     listReducer, 
-    objectReducer 
+    objectReducer,
+    stringReducer,
 } from "@wecreatesoftware/redux-higher-order-reducers"
 import { 
     LIST_A, 
     LIST_B, 
     LIST_C, 
     OBJECT_A, 
-    OBJECT_B 
+    OBJECT_B,
+    STRING_A,
+    STRING_B,
 } from "../some/constant/file"
 
 export const reducers = combineReducers({
-  [ LIST_A ]: listReducer({ reducerName: LIST_A }),
-  [ LIST_B ]: listReducer({ reducerName: LIST_B }),
-  [ LIST_C ]: listReducer({ 
-    reducerName: LIST_C, 
-    key: "id",
-  }),
-  [ OBJECT_A ]: objectReducer({ reducerName: OBJECT_A }),
-  [ OBJECT_B ]: objectReducer({ reducerName: OBJECT_B }),
+    [ LIST_A ]: listReducer({ reducerName: LIST_A }),
+    [ LIST_B ]: listReducer({ reducerName: LIST_B }),
+    [ LIST_C ]: listReducer({ 
+        reducerName: LIST_C, 
+        key: "id",
+    }),
+    [ OBJECT_A ]: objectReducer({ reducerName: OBJECT_A }),
+    [ OBJECT_B ]: objectReducer({ reducerName: OBJECT_B }),
+    [ STRING_A ]: objectReducer({ reducerName: STRING_A }),
+    [ STRING_B ]: objectReducer({ reducerName: STRING_B }),
 })
 ```
 
@@ -148,6 +153,19 @@ setObjectAction({
 })
 ```
 
+## String Reducer
+* resetStringAction - reset string to initial state (default "").
+* setStringAction - completely use new state and override current.
+    
+```javascript
+resetStringAction({ reducerName: STRING_A })
+
+setStringAction({ 
+    reducerName: STRING_B, 
+    payload: "foo bar",
+})
+```
+
 It might be annoying constantly setting reducer name right?  I certainly think so ...
 If you agree, you can do a curry function for each action for your reducers as follows.
 
@@ -159,7 +177,7 @@ import {
 import { SOME_NAME } from "../some/constant/file"
 
 export const reducers = combineReducers({
-  [ SOME_NAME ]: objectReducer({ reducerName: SOME_NAME }),
+    [ SOME_NAME ]: objectReducer({ reducerName: SOME_NAME }),
 })
 
 export const updateSomeNameAction = payload => updateObjectAction({ 
@@ -167,11 +185,13 @@ export const updateSomeNameAction = payload => updateObjectAction({
     payload,
 })
 
-dispatch(updateSomeNameAction({ 
-    loading: false, 
-    cool: "beans", 
-    foo: "bar",
-}))
+dispatch(
+    updateSomeNameAction({ 
+        loading: false, 
+        cool: "beans", 
+        foo: "bar",
+    })
+)
 ```
 
 ## Extended Reducer
@@ -196,10 +216,10 @@ const extendedReducer = (state, { type, payload }) => {
 }
 
 export const reducers = combineReducers({
-  [ SOME_NAME ]: objectReducer({ 
-    reducerName: SOME_NAME, 
-    extendedReducer,
-  }),
+    [ SOME_NAME ]: objectReducer({ 
+        reducerName: SOME_NAME, 
+        extendedReducer,
+    }),
 })
 
 export const myCustomAction = payload => ({ 
@@ -220,10 +240,10 @@ The above dispatch will flow through the higher order reducer, find no case, fal
 Here it will return ... 
 ```javascript
 state = {
-       loading: false, 
-       cool: "beans", 
-       foo: "bar",
-       lastUpdated: 1554174417035, //timestamp of when it was updated 
+    loading: false, 
+    cool: "beans", 
+    foo: "bar",
+    lastUpdated: 1554174417035, //timestamp of when it was updated 
 }
 ```
 
