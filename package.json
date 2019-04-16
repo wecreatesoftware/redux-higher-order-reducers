@@ -9,7 +9,7 @@
     "sideEffects": false,
     "scripts": {
         "clean": "rimraf dist docs",
-        "build": "npm run esdoc && npm run healthcheck && npm run clean && npm run rollup",
+        "build": "npm run healthcheck && npm run clean && npm run esdoc && npm run rollup",
         "esdoc": "esdoc",
         "esdoc:open": "npm run esdoc && open ./docs/index.html",
         "healthcheck": "npm run lint && npm run test",

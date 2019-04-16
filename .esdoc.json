@@ -4,6 +4,7 @@
     "excludes": [
         "\\.spec\\.js$",
         "\\.reducer\\.js$",
+        "\\.util\\.js$",
         "redux.higher.order.reducers.js"
     ],
     "plugins": [
