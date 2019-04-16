@@ -1,5 +1,6 @@
 export { listReducer } from "./list/list.reducer"
 export { objectReducer } from "./object/object.reducer"
+export { stringReducer } from "./string/string.reducer"
 
 export {
     updateObjectAction,
@@ -22,6 +23,11 @@ export {
 } from "./list/list.actions"
 
 export {
+    setStringAction,
+    resetStringAction,
+} from "./string/string.actions"
+
+export {
     UPDATE_OBJECT,
     RESET_OBJECT,
     SET_OBJECT,
@@ -40,3 +46,8 @@ export {
     UPDATE_ITEMS_BY_KEY,
     UPDATE_VALUE_ALL_ITEMS,
 } from "./list/list.types"
+
+export {
+    RESET_STRING,
+    SET_STRING,
+} from "./string/string.types"
