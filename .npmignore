@@ -17,3 +17,5 @@ src/**/*.spec.js
 demo
 *config*.js
 greenkeeper.json
+docs
+.esdoc.json

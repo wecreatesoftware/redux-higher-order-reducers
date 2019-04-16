@@ -1,0 +1,39 @@
+{
+    "source": "./src",
+    "destination": "./docs",
+    "excludes": [
+        "\\.spec\\.js$",
+        "\\.reducer\\.js$",
+        "redux.higher.order.reducers.js"
+    ],
+    "plugins": [
+        {
+            "name": "esdoc-standard-plugin",
+            "option": {
+                "test": {
+                    "source": "./src/",
+                    "interfaces": [
+                        "describe",
+                        "it",
+                        "context",
+                        "suite",
+                        "test"
+                    ],
+                    "includes": [
+                        "(spec)\\.js$"
+                    ],
+                    "excludes": [
+                        "\\.config\\.js$",
+                        "\\.reducer.spec\\.js$"
+                    ]
+                }
+            }
+        },
+        {
+            "name": "esdoc-ecmascript-proposal-plugin",
+            "option": {
+                "all": true
+            }
+        }
+    ]
+}

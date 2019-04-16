@@ -10,6 +10,7 @@
     "scripts": {
         "clean": "rimraf dist",
         "build": "npm run healthcheck && npm run clean && npm run rollup",
+        "esdoc": "esdoc && open ./docs/index.html",
         "healthcheck": "npm run lint && npm run test",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
@@ -44,6 +45,9 @@
         "babel-loader": "8.0.5",
         "babelrc-rollup": "3.0.0",
         "coveralls": "3.0.3",
+        "esdoc": "1.1.0",
+        "esdoc-ecmascript-proposal-plugin": "1.0.0",
+        "esdoc-standard-plugin": "1.0.0",
         "jest": "24.7.1",
         "parallel-webpack": "2.3.0",
         "prop-types": "15.7.2",

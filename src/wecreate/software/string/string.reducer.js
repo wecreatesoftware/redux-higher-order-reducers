@@ -4,7 +4,7 @@ import {
 } from "./string.types"
 
 export const stringReducer = ({ reducerName = undefined, initialState = "", extendedReducer = undefined } = {}) => (state = initialState, action = {}) => {
-    const { type = undefined, payload = {}, meta = {} } = action
+    const { type = undefined, payload = "", meta = {} } = action
 
     if (meta.reducerName !== reducerName) return state
 
