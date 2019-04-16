@@ -1,6 +1,7 @@
 export { listReducer } from "./list/list.reducer"
 export { objectReducer } from "./object/object.reducer"
 export { stringReducer } from "./string/string.reducer"
+export { booleanReducer } from "./boolean/boolean.reducer"
 
 export {
     updateObjectAction,
@@ -28,6 +29,12 @@ export {
 } from "./string/string.actions"
 
 export {
+    toggleBooleanAction,
+    resetBooleanAction,
+    setBooleanAction,
+} from "./boolean/boolean.actions"
+
+export {
     UPDATE_OBJECT,
     RESET_OBJECT,
     SET_OBJECT,
@@ -51,3 +58,9 @@ export {
     RESET_STRING,
     SET_STRING,
 } from "./string/string.types"
+
+export {
+    RESET_BOOLEAN,
+    SET_BOOLEAN,
+    TOGGLE_BOOLEAN,
+} from "./boolean/boolean.types"

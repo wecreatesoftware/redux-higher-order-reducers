@@ -11,13 +11,14 @@
 https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic
 How to use the reusable reducers ...
 
-Currently, there is stringReducer, listReducer and objectReducer ...
+Currently, there is stringReducer, booleanReducer, listReducer and objectReducer ...
 
 ```javascript
 import { 
     listReducer, 
     objectReducer,
     stringReducer,
+    booleanReducer,
 } from "@wecreatesoftware/redux-higher-order-reducers"
 import { 
     LIST_A, 
@@ -27,6 +28,7 @@ import {
     OBJECT_B,
     STRING_A,
     STRING_B,
+    BOOLEAN_A,
 } from "../some/constant/file"
 
 export const reducers = combineReducers({
@@ -38,8 +40,9 @@ export const reducers = combineReducers({
     }),
     [ OBJECT_A ]: objectReducer({ reducerName: OBJECT_A }),
     [ OBJECT_B ]: objectReducer({ reducerName: OBJECT_B }),
-    [ STRING_A ]: objectReducer({ reducerName: STRING_A }),
-    [ STRING_B ]: objectReducer({ reducerName: STRING_B }),
+    [ STRING_A ]: stringReducer({ reducerName: STRING_A }),
+    [ STRING_B ]: stringReducer({ reducerName: STRING_B }),
+    [ BOOLEAN_A ]: booleanReducer({ reducerName: BOOLEAN_A }),
 })
 ```
 
@@ -163,6 +166,23 @@ setStringAction({
     reducerName: STRING_B, 
     payload: "foo bar",
 })
+```
+
+## Boolean Reducer
+* resetBooleanAction - reset string to initial state (default false).
+* setBooleanAction - completely use new state and override current.
+* toggleBooleanAction - toggle the state of the boolean.
+    
+```javascript
+resetBooleanAction({ reducerName: BOOLEAN_A })
+
+setBooleanAction({ 
+    reducerName: BOOLEAN_A, 
+    payload: true,
+})
+
+toggleBooleanAction({ reducerName: BOOLEAN_A })
+
 ```
 
 It might be annoying constantly setting reducer name right?  I certainly think so ...

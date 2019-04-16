@@ -22,6 +22,21 @@ describe("string.actions", () => {
                 meta: { reducerName },
             })
         })
+
+        it("should include additional meta fields", () => {
+            expect(
+                resetStringAction({
+                    reducerName,
+                    meta: { foo: "bar" },
+                }),
+            ).toEqual({
+                type: RESET_STRING,
+                meta: {
+                    reducerName,
+                    foo: "bar",
+                },
+            })
+        })
     })
 
     describe("setStringAction", () => {
@@ -62,7 +77,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: { foo: "bar" },
                 }),
-            ).toThrow("Action payload must be of type string")
+            ).toThrow("Action payload must be of type String")
         })
 
         it("should throw Error for Array", () => {
@@ -71,7 +86,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: [],
                 }),
-            ).toThrow("Action payload must be of type string")
+            ).toThrow("Action payload must be of type String")
         })
 
         it("should throw Error for Number", () => {
@@ -80,7 +95,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: 0,
                 }),
-            ).toThrow("Action payload must be of type string")
+            ).toThrow("Action payload must be of type String")
         })
 
         it("should throw Error for Boolean", () => {
@@ -89,7 +104,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: true,
                 }),
-            ).toThrow("Action payload must be of type string")
+            ).toThrow("Action payload must be of type String")
         })
 
         it("should throw Error for Set", () => {
@@ -98,7 +113,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: new Set([ { foo: "bar" } ]),
                 }),
-            ).toThrow("Action payload must be of type string")
+            ).toThrow("Action payload must be of type String")
         })
 
         it("should throw Error for Undefined", () => {
@@ -107,7 +122,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: undefined,
                 }),
-            ).toThrow("Action payload must be of type string")
+            ).toThrow("Action payload must be of type String")
         })
 
         it("should throw Error for Null", () => {
@@ -116,7 +131,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: null,
                 }),
-            ).toThrow("Action payload must be of type string")
+            ).toThrow("Action payload must be of type String")
         })
 
         it("should throw Error for Symbol", () => {
@@ -125,7 +140,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: Symbol("symbol"),
                 }),
-            ).toThrow("Action payload must be of type string")
+            ).toThrow("Action payload must be of type String")
         })
 
         it("should throw Error for Function", () => {
@@ -134,7 +149,16 @@ describe("string.actions", () => {
                     reducerName,
                     string: () => ({}),
                 }),
-            ).toThrow("Action payload must be of type string")
+            ).toThrow("Action payload must be of type String")
+        })
+
+        it("should throw Error for Date", () => {
+            expect(
+                () => setStringAction({
+                    reducerName,
+                    string: new Date(),
+                }),
+            ).toThrow("Action payload must be of type String")
         })
     })
 })

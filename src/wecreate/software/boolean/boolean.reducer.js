@@ -1,18 +1,21 @@
 import {
-    RESET_STRING,
-    SET_STRING,
-} from "./string.types"
+    RESET_BOOLEAN,
+    SET_BOOLEAN,
+    TOGGLE_BOOLEAN,
+} from "./boolean.types"
 
-export const stringReducer = ({ reducerName = undefined, initialState = "", extendedReducer = undefined } = {}) => (state = initialState, action = {}) => {
+export const booleanReducer = ({ reducerName = undefined, initialState = false, extendedReducer = undefined } = {}) => (state = initialState, action = {}) => {
     const { type = undefined, payload, meta = {} } = action
 
     if (meta.reducerName !== reducerName) return state
 
     switch (type) {
-        case RESET_STRING:
+        case RESET_BOOLEAN:
             return initialState
-        case SET_STRING:
+        case SET_BOOLEAN:
             return payload
+        case TOGGLE_BOOLEAN:
+            return !state
         default:
             if (extendedReducer) {
                 return extendedReducer(state, action)
