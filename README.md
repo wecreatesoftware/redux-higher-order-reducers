@@ -11,6 +11,8 @@
 https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic
 How to use the reusable reducers ...
 
+[JS Docs](https://doc.esdoc.org/github.com/wecreatesoftware/redux-higher-order-reducers/)
+
 Currently, there is stringReducer, booleanReducer, listReducer and objectReducer ...
 
 ```javascript
