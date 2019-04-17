@@ -70,6 +70,7 @@ describe("string.actions", () => {
             })
         })
     })
+
     describe("error", () => {
         it("should throw Error for Object", () => {
             expect(

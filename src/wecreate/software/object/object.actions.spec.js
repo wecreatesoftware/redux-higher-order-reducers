@@ -53,4 +53,144 @@ describe("object.actions", () => {
             meta: { reducerName: "reducerName" },
         })
     })
+
+    describe("error", () => {
+        describe("setObjectAction", () => {
+            it("should throw Error for Array", () => {
+                expect(
+                    () => setObjectAction({
+                        reducerName,
+                        payload: [],
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+
+            it("should throw Error for Number", () => {
+                expect(
+                    () => setObjectAction({
+                        reducerName,
+                        payload: 0,
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+
+            it("should throw Error for Boolean", () => {
+                expect(
+                    () => setObjectAction({
+                        reducerName,
+                        payload: true,
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+
+            it("should throw Error for Undefined", () => {
+                expect(
+                    () => setObjectAction({
+                        reducerName,
+                        payload: undefined,
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+
+            it("should throw Error for Symbol", () => {
+                expect(
+                    () => setObjectAction({
+                        reducerName,
+                        payload: Symbol("symbol"),
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+
+            it("should throw Error for Function", () => {
+                expect(
+                    () => setObjectAction({
+                        reducerName,
+                        payload: () => ({}),
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+
+            it("should throw Error for Date", () => {
+                expect(
+                    () => setObjectAction({
+                        reducerName,
+                        payload: new Date(),
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+        })
+        describe("updateObjectAction", () => {
+            it("should throw Error for Array", () => {
+                expect(
+                    () => updateObjectAction({
+                        reducerName,
+                        payload: [],
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+
+            it("should throw Error for Number", () => {
+                expect(
+                    () => updateObjectAction({
+                        reducerName,
+                        payload: 0,
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+
+            it("should throw Error for Boolean", () => {
+                expect(
+                    () => updateObjectAction({
+                        reducerName,
+                        payload: true,
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+
+            it("should throw Error for Set", () => {
+                expect(
+                    () => updateObjectAction({
+                        reducerName,
+                        payload: new Set([ { foo: "bar" } ]),
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+
+            it("should throw Error for Undefined", () => {
+                expect(
+                    () => updateObjectAction({
+                        reducerName,
+                        payload: undefined,
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+
+            it("should throw Error for Symbol", () => {
+                expect(
+                    () => updateObjectAction({
+                        reducerName,
+                        payload: Symbol("symbol"),
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+
+            it("should throw Error for Function", () => {
+                expect(
+                    () => updateObjectAction({
+                        reducerName,
+                        payload: () => ({}),
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+
+            it("should throw Error for Date", () => {
+                expect(
+                    () => updateObjectAction({
+                        reducerName,
+                        payload: new Date(),
+                    }),
+                ).toThrow("Action payload must be of type Object")
+            })
+        })
+    })
 })
