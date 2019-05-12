@@ -43,7 +43,7 @@
         "@babel/register": "7.4.4",
         "@wecreatesoftware/eslint-config": "1.2.9",
         "babel-jest": "24.7.1",
-        "babel-loader": "8.0.5",
+        "babel-loader": "8.0.6",
         "babelrc-rollup": "3.0.0",
         "coveralls": "3.0.3",
         "esdoc": "1.1.0",
