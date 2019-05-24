@@ -42,14 +42,14 @@
         "@babel/preset-react": "7.0.0",
         "@babel/register": "7.4.4",
         "@wecreatesoftware/eslint-config": "1.2.9",
-        "babel-jest": "24.7.1",
+        "babel-jest": "24.8.0",
         "babel-loader": "8.0.6",
         "babelrc-rollup": "3.0.0",
         "coveralls": "3.0.3",
         "esdoc": "1.1.0",
         "esdoc-ecmascript-proposal-plugin": "1.0.0",
         "esdoc-standard-plugin": "1.0.0",
-        "jest": "24.7.1",
+        "jest": "24.8.0",
         "parallel-webpack": "2.3.0",
         "prop-types": "15.7.2",
         "react": "16.8.6",
@@ -59,8 +59,8 @@
         "rimraf": "2.6.3",
         "rollup": "1.12.3",
         "rollup-plugin-babel": "4.3.2",
-        "rollup-plugin-terser": "4.0.4",
-        "webpack": "4.32.0",
+        "rollup-plugin-terser": "5.0.0",
+        "webpack": "4.32.2",
         "webpack-cli": "3.3.2"
     }
 }
