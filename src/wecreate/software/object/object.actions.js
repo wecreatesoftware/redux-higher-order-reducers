@@ -52,7 +52,7 @@ export const resetObjectAction = ({ reducerName, meta }) => ({
  * @desc action creator to set object
  * @param {Object} param - this is object param
  * @param {String} param.reducerName - reducer name to set object
- * @param {String} param.payload - value to set reducer to
+ * @param {Object} param.payload - value to set reducer to
  * @param {Object} [param.meta] - additional meta fields
  * @throws {Error} Action payload must be of type String
  * @returns {{payload: String, meta: {reducerName: String}, type: String}}
