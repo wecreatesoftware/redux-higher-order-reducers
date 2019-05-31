@@ -2,9 +2,10 @@
     "name": "@wecreatesoftware/redux-higher-order-reducers",
     "version": "4.7.1",
     "description": "Generic higher order reducers.",
-    "main": "dist/redux.higher.order.reducers.js",
-    "jsnext:main": "dist/redux.higher.order.reducers.es.js",
-    "module": "dist/redux.higher.order.reducers.es.js",
+    "main": "dist/redux.higher.order.reducers.cjs.js",
+    "jsnext:main": "dist/redux.higher.order.reducers.esm.js",
+    "module": "dist/redux.higher.order.reducers.esm.js",
+    "browser": "dist/redux.higher.order.reducers.iife.js",
     "esnext": "src/wecreate/software/redux.higher.order.reducers.js",
     "sideEffects": false,
     "scripts": {
@@ -50,7 +51,6 @@
         "esdoc-ecmascript-proposal-plugin": "1.0.0",
         "esdoc-standard-plugin": "1.0.0",
         "jest": "24.8.0",
-        "parallel-webpack": "2.3.0",
         "prop-types": "15.7.2",
         "react": "16.8.6",
         "react-dom": "16.8.6",
@@ -59,8 +59,6 @@
         "rimraf": "2.6.3",
         "rollup": "1.12.5",
         "rollup-plugin-babel": "4.3.2",
-        "rollup-plugin-terser": "5.0.0",
-        "webpack": "4.32.2",
-        "webpack-cli": "3.3.2"
+        "rollup-plugin-terser": "5.0.0"
     }
 }
