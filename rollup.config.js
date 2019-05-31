@@ -3,38 +3,31 @@ import babel from "rollup-plugin-babel"
 import { terser as uglify } from "rollup-plugin-terser"
 
 const input = "src/wecreate/software/redux.higher.order.reducers.js"
-const plugins = [
-    babel(),
-    uglify(),
-]
 
 module.exports = [
     {
         input,
-        plugins,
         output: {
             file: packageJson.main,
-            format: "cjs",
+            format: "umd",
+            name: "@wecreatesoftware/redux-higher-order-reducers",
             sourcemap: true,
         },
+        plugins: [
+            babel(),
+            uglify(),
+        ],
     },
     {
         input,
-        plugins,
         output: {
-            file: packageJson.module,
-            format: "esm",
+            file: packageJson[ "jsnext:main" ],
+            format: "es",
             sourcemap: true,
         },
-    },
-    {
-        input,
-        plugins,
-        output: {
-            file: packageJson.browser,
-            name: "reduxHigherOrderReducers",
-            format: "iife",
-            sourcemap: true,
-        },
+        plugins: [
+            babel(),
+            uglify(),
+        ],
     },
 ]
