@@ -19,4 +19,3 @@ export const numberReducer = ({ reducerName = undefined, initialState = 0, exten
             return state
     }
 }
-//TODO how to handle decrement 0
