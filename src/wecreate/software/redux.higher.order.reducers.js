@@ -1,6 +1,7 @@
 export { listReducer } from "./list/list.reducer"
 export { objectReducer } from "./object/object.reducer"
 export { stringReducer } from "./string/string.reducer"
+export { numberReducer } from "./number/number.reducer"
 export { booleanReducer } from "./boolean/boolean.reducer"
 
 export {
@@ -27,6 +28,13 @@ export {
     setStringAction,
     resetStringAction,
 } from "./string/string.actions"
+
+export {
+    incrementNumberAction,
+    decrementNumberAction,
+    resetNumberAction,
+    setNumberAction,
+} from "./number/number.actions"
 
 export {
     toggleBooleanAction,
@@ -58,6 +66,13 @@ export {
     RESET_STRING,
     SET_STRING,
 } from "./string/string.types"
+
+export {
+    INCREMENT_NUMBER,
+    DECREMENT_NUMBER,
+    RESET_NUMBER,
+    SET_NUMBER,
+} from "./number/number.types"
 
 export {
     RESET_BOOLEAN,
