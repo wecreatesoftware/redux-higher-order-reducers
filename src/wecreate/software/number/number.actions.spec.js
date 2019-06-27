@@ -1,16 +1,17 @@
 import {
-    incrementNumberAction,
     decrementNumberAction,
+    incrementNumberAction,
     resetNumberAction,
     setNumberAction,
 } from "./number.actions"
 import {
-    INCREMENT_NUMBER,
     DECREMENT_NUMBER,
+    INCREMENT_NUMBER,
     RESET_NUMBER,
-    SET_NUMBER } from "./number.types"
+    SET_NUMBER,
+} from "./number.types"
 
-describe("client/reducers/numberReducer/number.actions", () => {
+describe("number.actions", () => {
     const reducerName = "reducerName"
     const number = 7
 
@@ -137,7 +138,9 @@ describe("client/reducers/numberReducer/number.actions", () => {
                     reducerName,
                     number: { foo: "bar" },
                 }),
-            ).toThrow("Action payload must be of type Number")
+            ).toThrow(
+                "Action payload must be of type Number",
+            )
         })
 
         it("should throw Error for Array", () => {
@@ -146,7 +149,9 @@ describe("client/reducers/numberReducer/number.actions", () => {
                     reducerName,
                     number: [],
                 }),
-            ).toThrow("Action payload must be of type Number")
+            ).toThrow(
+                "Action payload must be of type Number",
+            )
         })
 
         it("should throw Error for String", () => {
@@ -155,7 +160,9 @@ describe("client/reducers/numberReducer/number.actions", () => {
                     reducerName,
                     number: "test string",
                 }),
-            ).toThrow("Action payload must be of type Number")
+            ).toThrow(
+                "Action payload must be of type Number",
+            )
         })
 
         it("should throw Error for Boolean", () => {
@@ -164,7 +171,9 @@ describe("client/reducers/numberReducer/number.actions", () => {
                     reducerName,
                     number: true,
                 }),
-            ).toThrow("Action payload must be of type Number")
+            ).toThrow(
+                "Action payload must be of type Number",
+            )
         })
 
         it("should throw Error for Set", () => {
@@ -173,7 +182,9 @@ describe("client/reducers/numberReducer/number.actions", () => {
                     reducerName,
                     number: new Set([ { foo: "bar" } ]),
                 }),
-            ).toThrow("Action payload must be of type Number")
+            ).toThrow(
+                "Action payload must be of type Number",
+            )
         })
 
         it("should throw Error for Undefined", () => {
@@ -182,7 +193,9 @@ describe("client/reducers/numberReducer/number.actions", () => {
                     reducerName,
                     number: undefined,
                 }),
-            ).toThrow("Action payload must be of type Number")
+            ).toThrow(
+                "Action payload must be of type Number",
+            )
         })
 
         it("should throw Error for Null", () => {
@@ -191,7 +204,9 @@ describe("client/reducers/numberReducer/number.actions", () => {
                     reducerName,
                     number: null,
                 }),
-            ).toThrow("Action payload must be of type Number")
+            ).toThrow(
+                "Action payload must be of type Number",
+            )
         })
 
         it("should throw Error for Symbol", () => {
@@ -200,7 +215,9 @@ describe("client/reducers/numberReducer/number.actions", () => {
                     reducerName,
                     number: Symbol("symbol"),
                 }),
-            ).toThrow("Action payload must be of type Number")
+            ).toThrow(
+                "Action payload must be of type Number",
+            )
         })
 
         it("should throw Error for Function", () => {
@@ -209,7 +226,9 @@ describe("client/reducers/numberReducer/number.actions", () => {
                     reducerName,
                     number: () => ({}),
                 }),
-            ).toThrow("Action payload must be of type Number")
+            ).toThrow(
+                "Action payload must be of type Number",
+            )
         })
 
         it("should throw Error for Date", () => {
@@ -218,7 +237,9 @@ describe("client/reducers/numberReducer/number.actions", () => {
                     reducerName,
                     number: new Date(),
                 }),
-            ).toThrow("Action payload must be of type Number")
+            ).toThrow(
+                "Action payload must be of type Number",
+            )
         })
     })
 })

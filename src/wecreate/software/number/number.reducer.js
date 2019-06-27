@@ -1,13 +1,20 @@
-import { DECREMENT_NUMBER, INCREMENT_NUMBER, RESET_NUMBER, SET_NUMBER } from "./number.types"
+import {
+    DECREMENT_NUMBER,
+    INCREMENT_NUMBER,
+    RESET_NUMBER,
+    SET_NUMBER,
+} from "./number.types"
 
-export const numberReducer = ({ reducerName = undefined, initialState = 0, extendedReducer = undefined } = {}) => (state = initialState, action = {}) => {
+export const numberReducer = ({ reducerName = undefined, initialState = 0, extendedReducer = undefined, allowNegative = false } = {}) => (state = initialState, action = {}) => {
     const { type = undefined, payload = undefined, meta = {} } = action
     if (meta.reducerName !== reducerName) return state
+
     switch (type) {
         case INCREMENT_NUMBER:
             return state + 1
         case DECREMENT_NUMBER:
-            return state - 1
+            if (allowNegative) return state - 1
+            return Math.max((state - 1), 0)
         case RESET_NUMBER:
             return initialState
         case SET_NUMBER:

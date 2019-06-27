@@ -21,6 +21,7 @@ import {
     objectReducer,
     stringReducer,
     booleanReducer,
+    numberReducer,
 } from "@wecreatesoftware/redux-higher-order-reducers"
 import { 
     LIST_A, 
@@ -31,6 +32,7 @@ import {
     STRING_A,
     STRING_B,
     BOOLEAN_A,
+    NUMBER_A,
 } from "../some/constant/file"
 
 export const reducers = combineReducers({
@@ -45,6 +47,7 @@ export const reducers = combineReducers({
     [ STRING_A ]: stringReducer({ reducerName: STRING_A }),
     [ STRING_B ]: stringReducer({ reducerName: STRING_B }),
     [ BOOLEAN_A ]: booleanReducer({ reducerName: BOOLEAN_A }),
+    [ NUMBER_A ]: numberReducer({ reducerName: NUMBER_A }),
 })
 ```
 
@@ -184,6 +187,26 @@ setBooleanAction({
 })
 
 toggleBooleanAction({ reducerName: BOOLEAN_A })
+
+```
+
+## Number Reducer
+* incrementNumberAction - increment number.
+* decrementNumberAction - decrement number.
+* resetNumberAction - reset number.
+* setNumberAction - set number.
+    
+```javascript
+incrementNumberAction({ reducerName: NUMBER_A })
+
+decrementNumberAction({ reducerName: NUMBER_A })
+
+resetNumberAction({ reducerName: NUMBER_A })
+
+setNumberAction({ 
+    reducerName: BOOLEAN_A, 
+    nmumber: 100,
+})
 
 ```
 

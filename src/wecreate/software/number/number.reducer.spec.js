@@ -44,7 +44,7 @@ describe("number.reducer", () => {
     describe("case: INCREMENT_NUMBER", () => {
         const action = {
             type: INCREMENT_NUMBER,
-            meta: { reducerName }
+            meta: { reducerName },
         }
 
         it("should increment state", () => {
@@ -57,20 +57,40 @@ describe("number.reducer", () => {
     describe("case: DECREMENT_NUMBER", () => {
         const action = {
             type: DECREMENT_NUMBER,
-            meta: { reducerName }
+            meta: { reducerName },
         }
 
         it("should decrement state", () => {
             expect(
                 numberReducer({ reducerName })(state, action),
-            ).toEqual(11)
+            ).toEqual(
+                11,
+            )
+        })
+
+        it("should allow negative value", () => {
+            state = 0
+
+            expect(
+                numberReducer({ reducerName, allowNegative: true })(state, action),
+            ).toEqual(
+                -1,
+            )
+        })
+
+        it("should not allow negative value", () => {
+            state = 0
+
+            expect(
+                numberReducer({ reducerName })(state, action),
+            ).toEqual(0)
         })
     })
 
     describe("case: RESET_NUMBER", () => {
         const action = {
             type: RESET_NUMBER,
-            meta: { reducerName }
+            meta: { reducerName },
         }
 
         it("should set the count", () => {
@@ -84,7 +104,7 @@ describe("number.reducer", () => {
         const action = {
             type: SET_NUMBER,
             payload: 99,
-            meta: { reducerName }
+            meta: { reducerName },
         }
 
         it("should set the count", () => {
@@ -119,7 +139,7 @@ describe("number.reducer", () => {
             expect(
                 numberReducer({ reducerName, extendedReducer })(state, action),
             ).toEqual(
-                500
+                500,
             )
         })
 
@@ -132,7 +152,7 @@ describe("number.reducer", () => {
             expect(
                 numberReducer({ reducerName, extendedReducer })(state, action),
             ).toEqual(
-                9999
+                9999,
             )
         })
     })
