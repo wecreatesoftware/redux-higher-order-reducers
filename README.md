@@ -205,7 +205,7 @@ resetNumberAction({ reducerName: NUMBER_A })
 
 setNumberAction({ 
     reducerName: BOOLEAN_A, 
-    nmumber: 100,
+    number: 100,
 })
 
 ```
