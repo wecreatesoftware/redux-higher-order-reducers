@@ -7,7 +7,9 @@
 [![Known Vulnerabilities](https://snyk.io/test/npm/@wecreatesoftware/redux-higher-order-reducers/badge.svg)](https://snyk.io/test/npm/@wecreatesoftware/redux-higher-order-reducers)
 [![Downloads](https://img.shields.io/npm/dt/@wecreatesoftware/redux-higher-order-reducers.svg)](https://www.npmjs.com/package/@wecreatesoftware/redux-higher-order-reducers) 
 
+
 https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic
+
 How to use the reusable reducers ...
 
 [JS Docs](https://doc.esdoc.org/github.com/wecreatesoftware/redux-higher-order-reducers/)
