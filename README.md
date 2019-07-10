@@ -6,7 +6,6 @@
 [![Coverage Status](https://coveralls.io/repos/github/wecreatesoftware/redux-higher-order-reducers/badge.svg?branch=master)](https://coveralls.io/github/wecreatesoftware/redux-higher-order-reducers?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/npm/@wecreatesoftware/redux-higher-order-reducers/badge.svg)](https://snyk.io/test/npm/@wecreatesoftware/redux-higher-order-reducers)
 [![Downloads](https://img.shields.io/npm/dt/@wecreatesoftware/redux-higher-order-reducers.svg)](https://www.npmjs.com/package/@wecreatesoftware/redux-higher-order-reducers) 
-[![Greenkeeper badge](https://badges.greenkeeper.io/wecreatesoftware/redux-higher-order-reducers.svg)](https://greenkeeper.io/)
 
 https://redux.js.org/recipes/structuring-reducers/reusing-reducer-logic
 How to use the reusable reducers ...
