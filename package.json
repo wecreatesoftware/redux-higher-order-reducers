@@ -17,7 +17,8 @@
         "lint:fix": "eslint src --fix",
         "prepublish": "npm run build",
         "rollup": "rollup -c rollup.config.js",
-        "test": "jest"
+        "test": "jest",
+        "update": "ncu -u && npm i && npm run healthcheck"
     },
     "repository": {
         "type": "git",
@@ -50,6 +51,7 @@
         "esdoc-ecmascript-proposal-plugin": "1.0.0",
         "esdoc-standard-plugin": "1.0.0",
         "jest": "24.8.0",
+        "npm-check-updates": "3.1.18",
         "prop-types": "15.7.2",
         "react": "16.8.6",
         "react-dom": "16.8.6",
