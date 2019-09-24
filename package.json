@@ -39,7 +39,7 @@
         "@babel/core": "7.5.5",
         "@babel/plugin-external-helpers": "7.2.0",
         "@babel/plugin-proposal-object-rest-spread": "7.5.5",
-        "@babel/preset-env": "7.6.0",
+        "@babel/preset-env": "7.6.2",
         "@babel/preset-react": "7.0.0",
         "@babel/register": "7.6.0",
         "@wecreatesoftware/eslint-config": "1.2.10",
