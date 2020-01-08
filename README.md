@@ -185,7 +185,7 @@ resetBooleanAction({ reducerName: BOOLEAN_A })
 
 setBooleanAction({ 
     reducerName: BOOLEAN_A, 
-    payload: true,
+    boolean: true,
 })
 
 toggleBooleanAction({ reducerName: BOOLEAN_A })
