@@ -50,7 +50,7 @@
         "esdoc": "1.1.0",
         "esdoc-ecmascript-proposal-plugin": "1.0.0",
         "esdoc-standard-plugin": "1.0.0",
-        "jest": "24.9.0",
+        "jest": "25.2.1",
         "npm-check-updates": "4.0.1",
         "prop-types": "15.7.2",
         "react": "16.12.0",
