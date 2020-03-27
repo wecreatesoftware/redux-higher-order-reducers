@@ -43,7 +43,7 @@
         "@babel/preset-react": "7.9.4",
         "@babel/register": "7.9.0",
         "@wecreatesoftware/eslint-config": "1.2.10",
-        "babel-jest": "24.9.0",
+        "babel-jest": "25.2.3",
         "babel-loader": "8.0.6",
         "babelrc-rollup": "3.0.0",
         "coveralls": "3.0.9",
