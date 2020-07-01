@@ -35,7 +35,7 @@
     "author": "Matt Struensee <matt@wecreate.software>",
     "license": "MIT",
     "devDependencies": {
-        "@babel/cli": "7.10.1",
+        "@babel/cli": "7.10.4",
         "@babel/core": "7.10.1",
         "@babel/plugin-external-helpers": "7.10.1",
         "@babel/plugin-proposal-object-rest-spread": "7.10.1",
