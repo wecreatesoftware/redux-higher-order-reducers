@@ -14,7 +14,9 @@ module.exports = [
             sourcemap: true,
         },
         plugins: [
-            babel(),
+            babel({
+                babelHelpers: "bundled",
+            }),
             uglify(),
         ],
     },
@@ -26,7 +28,9 @@ module.exports = [
             sourcemap: true,
         },
         plugins: [
-            babel(),
+            babel({
+                babelHelpers: "bundled",
+            }),
             uglify(),
         ],
     },
