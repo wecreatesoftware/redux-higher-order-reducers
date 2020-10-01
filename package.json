@@ -10,8 +10,8 @@
     "scripts": {
         "clean": "rimraf dist docs",
         "build": "npm run healthcheck && npm run clean && npm run esdoc && npm run rollup",
-        "esdoc": "esdoc",
-        "esdoc:open": "npm run esdoc && open ./docs/index.html",
+        "docs": "esdoc",
+        "docs:open": "npm run esdoc && open ./docs/index.html",
         "healthcheck": "npm run lint && npm run test",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",
