@@ -51,7 +51,7 @@
         "esdoc": "1.1.0",
         "esdoc-ecmascript-proposal-plugin": "1.0.0",
         "esdoc-standard-plugin": "1.0.0",
-        "jest": "26.4.2",
+        "jest": "26.5.2",
         "npm-check-updates": "9.0.3",
         "prop-types": "15.7.2",
         "react": "16.13.1",
