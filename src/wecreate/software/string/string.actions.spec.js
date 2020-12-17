@@ -8,6 +8,17 @@ import {
 } from "./string.types"
 
 describe("string.actions", () => {
+    let spy
+    beforeAll(() => {
+        const mockDate = new Date(1466424490000)
+        spy = jest
+            .spyOn(global, "Date")
+            .mockImplementation(() => mockDate)
+    })
+    afterAll(() => {
+        spy.mockRestore()
+    })
+
     const reducerName = "reducerName"
     const string = "string"
 
@@ -78,7 +89,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: { foo: "bar" },
                 }),
-            ).toThrow("Action payload must be of type String")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setStringAction) => Action payload[{\"foo\":\"bar\"}] must be of type String")
         })
 
         it("should throw Error for Array", () => {
@@ -87,7 +98,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: [],
                 }),
-            ).toThrow("Action payload must be of type String")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setStringAction) => Action payload[[]] must be of type String")
         })
 
         it("should throw Error for Number", () => {
@@ -96,7 +107,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: 0,
                 }),
-            ).toThrow("Action payload must be of type String")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setStringAction) => Action payload[0] must be of type String")
         })
 
         it("should throw Error for Boolean", () => {
@@ -105,7 +116,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: true,
                 }),
-            ).toThrow("Action payload must be of type String")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setStringAction) => Action payload[true] must be of type String")
         })
 
         it("should throw Error for Set", () => {
@@ -114,7 +125,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: new Set([ { foo: "bar" } ]),
                 }),
-            ).toThrow("Action payload must be of type String")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setStringAction) => Action payload[{}] must be of type String")
         })
 
         it("should throw Error for Undefined", () => {
@@ -123,7 +134,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: undefined,
                 }),
-            ).toThrow("Action payload must be of type String")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setStringAction) => Action payload[undefined] must be of type String")
         })
 
         it("should throw Error for Null", () => {
@@ -132,7 +143,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: null,
                 }),
-            ).toThrow("Action payload must be of type String")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setStringAction) => Action payload[null] must be of type String")
         })
 
         it("should throw Error for Symbol", () => {
@@ -141,7 +152,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: Symbol("symbol"),
                 }),
-            ).toThrow("Action payload must be of type String")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setStringAction) => Action payload[undefined] must be of type String")
         })
 
         it("should throw Error for Function", () => {
@@ -150,7 +161,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: () => ({}),
                 }),
-            ).toThrow("Action payload must be of type String")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setStringAction) => Action payload[undefined] must be of type String")
         })
 
         it("should throw Error for Date", () => {
@@ -159,7 +170,7 @@ describe("string.actions", () => {
                     reducerName,
                     string: new Date(),
                 }),
-            ).toThrow("Action payload must be of type String")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setStringAction) => Action payload[\"2016-06-20T12:08:10.000Z\"] must be of type String")
         })
     })
 })

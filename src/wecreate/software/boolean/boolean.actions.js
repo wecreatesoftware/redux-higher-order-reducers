@@ -44,7 +44,7 @@ export const resetBooleanAction = ({ reducerName, meta }) => ({
  */
 export const setBooleanAction = ({ reducerName, boolean, meta }) => {
     if (typeof boolean !== "boolean" || boolean instanceof Boolean) {
-        throw Error("Action payload must be of type Boolean")
+        throw Error(`@wecreatesoftware/redux-higher-order-reducers(setBooleanAction) => Action payload[${JSON.stringify(boolean)}] must be of type Boolean`)
     }
 
     return {

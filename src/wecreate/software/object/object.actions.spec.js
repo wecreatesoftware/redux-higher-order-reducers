@@ -10,6 +10,17 @@ import {
 } from "./object.types"
 
 describe("object.actions", () => {
+    let spy
+    beforeAll(() => {
+        const mockDate = new Date(1466424490000)
+        spy = jest
+            .spyOn(global, "Date")
+            .mockImplementation(() => mockDate)
+    })
+    afterAll(() => {
+        spy.mockRestore()
+    })
+
     const reducerName = "reducerName"
 
     it("should create an action to update key value pair", () => {
@@ -62,7 +73,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: [],
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setObjectAction) => Action payload[[]] must be of type Object")
             })
 
             it("should throw Error for Number", () => {
@@ -71,7 +82,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: 0,
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setObjectAction) => Action payload[0] must be of type Object")
             })
 
             it("should throw Error for Boolean", () => {
@@ -80,7 +91,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: true,
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setObjectAction) => Action payload[true] must be of type Object")
             })
 
             it("should throw Error for Undefined", () => {
@@ -89,7 +100,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: undefined,
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setObjectAction) => Action payload[undefined] must be of type Object")
             })
 
             it("should throw Error for Symbol", () => {
@@ -98,7 +109,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: Symbol("symbol"),
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setObjectAction) => Action payload[undefined] must be of type Object")
             })
 
             it("should throw Error for Function", () => {
@@ -107,7 +118,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: () => ({}),
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setObjectAction) => Action payload[undefined] must be of type Object")
             })
 
             it("should throw Error for Date", () => {
@@ -116,7 +127,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: new Date(),
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setObjectAction) => Action payload[\"2016-06-20T12:08:10.000Z\"] must be of type Object")
             })
         })
         describe("updateObjectAction", () => {
@@ -126,7 +137,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: [],
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(updateObjectAction) => Action payload[[]] must be of type Object")
             })
 
             it("should throw Error for Number", () => {
@@ -135,7 +146,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: 0,
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(updateObjectAction) => Action payload[0] must be of type Object")
             })
 
             it("should throw Error for Boolean", () => {
@@ -144,7 +155,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: true,
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(updateObjectAction) => Action payload[true] must be of type Object")
             })
 
             it("should throw Error for Set", () => {
@@ -153,7 +164,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: new Set([ { foo: "bar" } ]),
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(updateObjectAction) => Action payload[{}] must be of type Object")
             })
 
             it("should throw Error for Undefined", () => {
@@ -162,7 +173,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: undefined,
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(updateObjectAction) => Action payload[undefined] must be of type Object")
             })
 
             it("should throw Error for Symbol", () => {
@@ -171,7 +182,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: Symbol("symbol"),
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(updateObjectAction) => Action payload[undefined] must be of type Object")
             })
 
             it("should throw Error for Function", () => {
@@ -180,7 +191,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: () => ({}),
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(updateObjectAction) => Action payload[undefined] must be of type Object")
             })
 
             it("should throw Error for Date", () => {
@@ -189,7 +200,7 @@ describe("object.actions", () => {
                         reducerName,
                         payload: new Date(),
                     }),
-                ).toThrow("Action payload must be of type Object")
+                ).toThrow("@wecreatesoftware/redux-higher-order-reducers(updateObjectAction) => Action payload[\"2016-06-20T12:08:10.000Z\"] must be of type Object")
             })
         })
     })

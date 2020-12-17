@@ -17,10 +17,10 @@ export const updateObjectAction = ({ reducerName, payload, meta }) => {
     if (
         typeof payload !== "object"
         || payload.length >= 0
-        || payload instanceof Date
+        || Object.prototype.toString.call(payload) === "[object Date]"
         || payload instanceof Set
     ) {
-        throw Error("Action payload must be of type Object")
+        throw Error(`@wecreatesoftware/redux-higher-order-reducers(updateObjectAction) => Action payload[${JSON.stringify(payload)}] must be of type Object`)
     }
 
     return {
@@ -61,10 +61,10 @@ export const setObjectAction = ({ reducerName, payload, meta }) => {
     if (
         typeof payload !== "object"
         || payload.length >= 0
-        || payload instanceof Date
+        || Object.prototype.toString.call(payload) === "[object Date]"
         || payload instanceof Set
     ) {
-        throw Error("Action payload must be of type Object")
+        throw Error(`@wecreatesoftware/redux-higher-order-reducers(setObjectAction) => Action payload[${JSON.stringify(payload)}] must be of type Object`)
     }
 
     return {

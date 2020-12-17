@@ -29,7 +29,7 @@ export const resetStringAction = ({ reducerName, meta }) => ({
  */
 export const setStringAction = ({ reducerName, string, meta }) => {
     if (typeof string !== "string" || string instanceof String) {
-        throw Error("Action payload must be of type String")
+        throw Error(`@wecreatesoftware/redux-higher-order-reducers(setStringAction) => Action payload[${JSON.stringify(string)}] must be of type String`)
     }
 
     return {

@@ -61,7 +61,7 @@ export const resetNumberAction = ({ reducerName, meta }) => ({
  */
 export const setNumberAction = ({ reducerName, number, meta }) => {
     if (typeof number !== "number" || number instanceof Number) {
-        throw Error("Action payload must be of type Number")
+        throw Error(`@wecreatesoftware/redux-higher-order-reducers(setNumberAction) => Action payload[${JSON.stringify(number)}] must be of type Number`)
     }
 
     return {

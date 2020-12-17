@@ -10,6 +10,17 @@ import {
 } from "./boolean.types"
 
 describe("boolean.actions", () => {
+    let spy
+    beforeAll(() => {
+        const mockDate = new Date(1466424490000)
+        spy = jest
+            .spyOn(global, "Date")
+            .mockImplementation(() => mockDate)
+    })
+    afterAll(() => {
+        spy.mockRestore()
+    })
+
     const reducerName = "reducerName"
     const boolean = false
 
@@ -108,7 +119,7 @@ describe("boolean.actions", () => {
                     reducerName,
                     boolean: { foo: "bar" },
                 }),
-            ).toThrow("Action payload must be of type Boolean")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setBooleanAction) => Action payload[{\"foo\":\"bar\"}] must be of type Boolean")
         })
 
         it("should throw Error for Array", () => {
@@ -117,7 +128,7 @@ describe("boolean.actions", () => {
                     reducerName,
                     boolean: [],
                 }),
-            ).toThrow("Action payload must be of type Boolean")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setBooleanAction) => Action payload[[]] must be of type Boolean")
         })
 
         it("should throw Error for Number", () => {
@@ -126,7 +137,7 @@ describe("boolean.actions", () => {
                     reducerName,
                     boolean: 0,
                 }),
-            ).toThrow("Action payload must be of type Boolean")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setBooleanAction) => Action payload[0] must be of type Boolean")
         })
 
         it("should throw Error for String", () => {
@@ -135,7 +146,7 @@ describe("boolean.actions", () => {
                     reducerName,
                     boolean: "true",
                 }),
-            ).toThrow("Action payload must be of type Boolean")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setBooleanAction) => Action payload[\"true\"] must be of type Boolean")
         })
 
         it("should throw Error for Set", () => {
@@ -144,7 +155,7 @@ describe("boolean.actions", () => {
                     reducerName,
                     boolean: new Set([ { foo: "bar" } ]),
                 }),
-            ).toThrow("Action payload must be of type Boolean")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setBooleanAction) => Action payload[{}] must be of type Boolean")
         })
 
         it("should throw Error for Undefined", () => {
@@ -153,7 +164,7 @@ describe("boolean.actions", () => {
                     reducerName,
                     boolean: undefined,
                 }),
-            ).toThrow("Action payload must be of type Boolean")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setBooleanAction) => Action payload[undefined] must be of type Boolean")
         })
 
         it("should throw Error for Null", () => {
@@ -162,7 +173,7 @@ describe("boolean.actions", () => {
                     reducerName,
                     boolean: null,
                 }),
-            ).toThrow("Action payload must be of type Boolean")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setBooleanAction) => Action payload[null] must be of type Boolean")
         })
 
         it("should throw Error for Symbol", () => {
@@ -171,7 +182,7 @@ describe("boolean.actions", () => {
                     reducerName,
                     boolean: Symbol("symbol"),
                 }),
-            ).toThrow("Action payload must be of type Boolean")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setBooleanAction) => Action payload[undefined] must be of type Boolean")
         })
 
         it("should throw Error for Function", () => {
@@ -180,7 +191,7 @@ describe("boolean.actions", () => {
                     reducerName,
                     boolean: () => ({}),
                 }),
-            ).toThrow("Action payload must be of type Boolean")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setBooleanAction) => Action payload[undefined] must be of type Boolean")
         })
 
         it("should throw Error for Date", () => {
@@ -189,7 +200,7 @@ describe("boolean.actions", () => {
                     reducerName,
                     boolean: new Date(),
                 }),
-            ).toThrow("Action payload must be of type Boolean")
+            ).toThrow("@wecreatesoftware/redux-higher-order-reducers(setBooleanAction) => Action payload[\"2016-06-20T12:08:10.000Z\"] must be of type Boolean")
         })
     })
 })
