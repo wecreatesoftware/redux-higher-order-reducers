@@ -5,6 +5,7 @@ import {
     insertItem,
     removeItem,
     removeItemByKey,
+    removeItemsByKey,
     updateItem,
     updateItemByKey,
     updateItemsByKey,
@@ -16,6 +17,7 @@ import {
     INSERT_ITEM,
     REMOVE_ITEM,
     REMOVE_ITEM_BY_KEY,
+    REMOVE_ITEMS_BY_KEY,
     RESET_LIST,
     SET_LIST,
     UPDATE_ITEM,
@@ -130,6 +132,22 @@ describe("list.reducer", () => {
 
             expect(
                 removeItemByKey,
+            ).toHaveBeenCalledTimes(
+                1,
+            )
+        })
+    })
+
+    describe("REMOVE_ITEMS_BY_KEY", () => {
+        it("should call removeItemSByKey", () => {
+            action = {
+                ...action,
+                type: REMOVE_ITEMS_BY_KEY,
+            }
+            listReducer({ reducerName })(state, action)
+
+            expect(
+                removeItemsByKey,
             ).toHaveBeenCalledTimes(
                 1,
             )

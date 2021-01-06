@@ -4,6 +4,7 @@ import {
     insertItemAction,
     removeItemAction,
     removeItemByKeyAction,
+    removeItemsByKeyAction,
     resetListAction,
     setListAction,
     updateItemAction,
@@ -17,6 +18,7 @@ import {
     INSERT_ITEM,
     REMOVE_ITEM,
     REMOVE_ITEM_BY_KEY,
+    REMOVE_ITEMS_BY_KEY,
     RESET_LIST,
     SET_LIST,
     UPDATE_ITEM,
@@ -69,6 +71,19 @@ describe("list.actions", () => {
         ).toEqual({
             type: REMOVE_ITEM_BY_KEY,
             payload: { item },
+            meta: { reducerName },
+        })
+    })
+
+    it("should create an action to remove items by key", () => {
+        expect(
+            removeItemsByKeyAction({
+                items: [ item ],
+                reducerName,
+            }),
+        ).toEqual({
+            type: REMOVE_ITEMS_BY_KEY,
+            payload: [ item ],
             meta: { reducerName },
         })
     })

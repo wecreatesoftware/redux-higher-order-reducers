@@ -1,6 +1,6 @@
 {
     "name": "@wecreatesoftware/redux-higher-order-reducers",
-    "version": "5.2.2",
+    "version": "5.3.0",
     "description": "Generic higher order reducers for Redux.",
     "main": "dist/redux.higher.order.reducers.js",
     "jsnext:main": "dist/redux.higher.order.reducers.es.js",
@@ -11,7 +11,7 @@
         "clean": "rimraf dist docs",
         "build": "npm run healthcheck && npm run clean && npm run docs && npm run rollup",
         "docs": "esdoc",
-        "docs:open": "npm run esdoc && open ./docs/index.html",
+        "docs:open": "npm run docs && open ./docs/index.html",
         "healthcheck": "npm run lint && npm run test",
         "lint": "eslint src",
         "lint:fix": "eslint src --fix",

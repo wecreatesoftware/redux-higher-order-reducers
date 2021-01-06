@@ -4,6 +4,7 @@ import {
     INSERT_ITEM,
     REMOVE_ITEM,
     REMOVE_ITEM_BY_KEY,
+    REMOVE_ITEMS_BY_KEY,
     RESET_LIST,
     SET_LIST,
     UPDATE_ITEM,
@@ -58,6 +59,23 @@ export const removeItemAction = ({ index, reducerName, meta }) => ({
 export const removeItemByKeyAction = ({ item, reducerName, meta }) => ({
     type: REMOVE_ITEM_BY_KEY,
     payload: { item },
+    meta: {
+        reducerName,
+        ...meta,
+    },
+})
+
+/**
+ * @desc action creator to remove items
+ * @param {Object} param - this is object param
+ * @param {String} param.reducerName - reducer name to remove item
+ * @param {Array} param.items - items to remove (must have key)
+ * @param {Object} [param.meta] - additional meta fields
+ * @returns {{payload: Array, meta: {reducerName: String}, type: string}}
+ */
+export const removeItemsByKeyAction = ({ items, reducerName, meta }) => ({
+    type: REMOVE_ITEMS_BY_KEY,
+    payload: items,
     meta: {
         reducerName,
         ...meta,
@@ -185,7 +203,7 @@ export const addItemAction = ({ item, reducerName, meta }) => ({
  * @desc action creator to add items to end of list
  * @param {Object} param - this is object param
  * @param {String} param.reducerName - reducer name to add items to
- * @param {Object} param.items - items to add to end of list
+ * @param {Array} param.items - items to add to end of list
  * @param {Object} [param.meta] - additional meta fields
  * @returns {{payload: Object, meta: {reducerName: String}, type: string}}
  */

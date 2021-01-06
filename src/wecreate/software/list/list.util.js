@@ -10,6 +10,11 @@ export const removeItemByKey = ({ state, payload: { item }, key }) => {
     return (index > -1) ? removeItem({ state, payload: { index } }) : state
 }
 
+export const removeItemsByKey = ({ state, payload: { items }, key }) => {
+    const keys = items.map(item => item[ key ])
+    return state.filter(item => !keys.includes(item[ key ]))
+}
+
 export const updateItem = ({ state, payload: { index, item } }) => state.map((curItem, curIndex) => {
     if (curIndex !== index) return curItem
 

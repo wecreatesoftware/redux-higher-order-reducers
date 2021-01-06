@@ -4,6 +4,7 @@ import {
     insertItem,
     removeItem,
     removeItemByKey,
+    removeItemsByKey,
     updateItem,
     updateItemByKey,
     updateItemsByKey,
@@ -79,6 +80,26 @@ describe("list.util", () => {
             it(`should remove item: ${desc}`, () => {
                 expect(
                     removeItemByKey({ state, payload, key }).map(({ id }) => id),
+                ).toEqual(
+                    expected,
+                )
+            })
+        })
+    })
+
+    describe("removeItemsByKey", () => {
+        [
+            { desc: "key id value 0,1", payload: { items: [ { id: 0 }, { id: 1 } ] }, expected: [ 2, 3, 4 ] },
+            { desc: "key id value 1,2", payload: { items: [ { id: 1 }, { id: 2 } ] }, expected: [ 0, 3, 4 ] },
+            { desc: "key id value 2,3", payload: { items: [ { id: 2 }, { id: 3 } ] }, expected: [ 0, 1, 4 ] },
+            { desc: "key id value 3,4", payload: { items: [ { id: 3 }, { id: 4 } ] }, expected: [ 0, 1, 2 ] },
+            { desc: "key id value 1,4", payload: { items: [ { id: 1 }, { id: 4 } ] }, expected: [ 0, 2, 3 ] },
+            { desc: "none, id value not found", payload: { items: [ { id: 5 } ] }, expected: [ 0, 1, 2, 3, 4 ] },
+            { desc: "none, ids value not found", payload: { items: [ { id: 5 }, { id: 6 } ] }, expected: [ 0, 1, 2, 3, 4 ] },
+        ].forEach(({ desc, expected, payload }) => {
+            it(`should remove item: ${desc}`, () => {
+                expect(
+                    removeItemsByKey({ state, payload, key }).map(({ id }) => id),
                 ).toEqual(
                     expected,
                 )

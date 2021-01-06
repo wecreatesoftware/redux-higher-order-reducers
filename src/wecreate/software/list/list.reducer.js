@@ -4,6 +4,7 @@ import {
     INSERT_ITEM,
     REMOVE_ITEM,
     REMOVE_ITEM_BY_KEY,
+    REMOVE_ITEMS_BY_KEY,
     RESET_LIST,
     SET_LIST,
     UPDATE_ITEM,
@@ -17,6 +18,7 @@ import {
     insertItem,
     removeItem,
     removeItemByKey,
+    removeItemsByKey,
     updateItem,
     updateItemByKey,
     updateItemsByKey,
@@ -40,6 +42,8 @@ export const listReducer = ({ reducerName = undefined, initialState = [], key = 
             return removeItem({ state, payload })
         case REMOVE_ITEM_BY_KEY:
             return removeItemByKey({ state, payload, key })
+        case REMOVE_ITEMS_BY_KEY:
+            return removeItemsByKey({ state, payload, key })
         case UPDATE_ITEM:
             return updateItem({ state, payload })
         case UPDATE_ITEM_BY_KEY:
