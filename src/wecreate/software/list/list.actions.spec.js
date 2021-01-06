@@ -83,7 +83,7 @@ describe("list.actions", () => {
             }),
         ).toEqual({
             type: REMOVE_ITEMS_BY_KEY,
-            payload: [ item ],
+            payload: { items: [ item ] },
             meta: { reducerName },
         })
     })

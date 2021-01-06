@@ -75,7 +75,7 @@ export const removeItemByKeyAction = ({ item, reducerName, meta }) => ({
  */
 export const removeItemsByKeyAction = ({ items, reducerName, meta }) => ({
     type: REMOVE_ITEMS_BY_KEY,
-    payload: items,
+    payload: { items },
     meta: {
         reducerName,
         ...meta,
