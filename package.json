@@ -1,6 +1,6 @@
 {
     "name": "@wecreatesoftware/redux-higher-order-reducers",
-    "version": "5.3.1",
+    "version": "5.3.2",
     "description": "Generic higher order reducers for Redux.",
     "main": "dist/redux.higher.order.reducers.js",
     "jsnext:main": "dist/redux.higher.order.reducers.es.js",
