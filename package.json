@@ -41,7 +41,7 @@
         "@babel/plugin-proposal-object-rest-spread": "7.13.8",
         "@babel/preset-env": "7.15.0",
         "@babel/preset-react": "7.14.5",
-        "@babel/register": "7.14.5",
+        "@babel/register": "7.16.7",
         "@rollup/plugin-babel": "5.3.0",
         "@wecreatesoftware/eslint-config": "1.2.10",
         "babel-jest": "27.0.6",
