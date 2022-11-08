@@ -45,7 +45,7 @@
         "@rollup/plugin-babel": "5.3.0",
         "@wecreatesoftware/eslint-config": "1.2.10",
         "babel-jest": "27.0.6",
-        "babel-loader": "8.2.2",
+        "babel-loader": "9.1.0",
         "babelrc-rollup": "3.0.0",
         "coveralls": "3.1.1",
         "esdoc": "1.1.0",
